@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="teste_tcc" schema="public" type="PostgreSQL - 13.1">
+   <tables>
+      <table name="avaliacao_comercio" numRows="0" remarks="Avaliacao dos empreendimentos pelos usuarios" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="conta_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="conta_avaliacao_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="conta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="comercio_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="comercio_avaliacao_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="comercio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="nota" nullable="false" remarks="Qualifica dada ao empreendimento pelo usuario" size="4" type="numeric" typeCode="2"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="avaliacao_comercio_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="catalogo" numRows="0" remarks="Itens/servicos cadastrados pelos empreendedores" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5">
+            <child column="catalogo_id" foreignKey="catalogo_promocao_fk" implied="false" onDeleteCascade="false" schema="public" table="promocao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="comercio_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="comercio_catalogo_fk" implied="false" onDeleteCascade="false" schema="public" table="comercio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="2" name="produto" nullable="false" remarks="Informa se esse registro se refere a um produto. Se desligado, se refere apenas um servico. Desligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="categoria" nullable="false" remarks="Categoria geral ao qual pertence o item/servico" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="nome_descritivo" nullable="false" remarks="Descricao concisa e informativa sobre o item/servico" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="marca" nullable="false" remarks="Marca comercial do item/servico" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="medida_usada" nullable="false" remarks="Grandeza de medida (quilo, litro, unidade, hora, empreitada, etc.) utilizada nesse registro" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="3" id="7" name="quantidade_medida" nullable="false" remarks="Quantia minima comercializada por cada grandeza de medida usada em medida_usada" size="7" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="3" id="8" name="preco" nullable="false" remarks="Preco referente a quantidade_medida minima informada do item/servico" size="7" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="9" name="item_vip" nullable="false" remarks="Informa se o empreendedor optou pelo plano Item/Servico VIP. Desligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="10" name="ativo" nullable="false" remarks="Informa se o registro do item esta ativo na plataforma. Ligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="11" name="ultima_alteracao" nullable="false" remarks="Data e hora da ultima alteracao feita nas informacoes desse registro" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="catalogo_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="comercio" numRows="0" remarks="Informacoes dos empreendimentos dos usuarios" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5">
+            <child column="comercio_id" foreignKey="comercio_avaliacao_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="avaliacao_comercio"/>
+            <child column="comercio_id" foreignKey="comercio_catalogo_fk" implied="false" onDeleteCascade="false" schema="public" table="catalogo"/>
+            <child column="comercio_id" foreignKey="comercio_reporte_fk" implied="false" onDeleteCascade="false" schema="public" table="reporte"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="conta_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="conta_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="conta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nome_fantasia" nullable="false" remarks="Nome fantasia (comercial) do empreendimento" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="razao_social" nullable="false" remarks="Nome conforme consta no registro oficial do empreendimento" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="cnpj" nullable="false" remarks="CNPJ ativo do empreendimento" size="14" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="logradouro" nullable="false" remarks="Tipo (Rua, Avenida, etc) e nome do endereco do empreendimento" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="numero_e_complemento" nullable="false" remarks="Numero e complemento (Loja A, Casa B, etc.) do endereco do empreendimento" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="cep" nullable="false" remarks="CEP da regiao do empreendimento" size="8" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="bairro" nullable="false" remarks="Bairro onde se encontra o empreendimento" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="cidade" nullable="false" remarks="Cidade onde se encontra o empreendimento" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="contrato_social_hash" nullable="false" remarks="Chave aleatoria e unica do contrato social cadastrado para o empreendimento" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="11" name="comercio_vip" nullable="false" remarks="Informa se o empreendedor optou pelo plano Comercio VIP. Desligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="12" name="ativo" nullable="false" remarks="Informa se o registro do empreendimento esta ativo na plataforma. Ligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="13" name="ultima_alteracao" nullable="false" remarks="Data e hora da ultima alteracao feita nas informacoes desse registro" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="comercio_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="conta" numRows="0" remarks="Informacoes de todos os usuarios da plataforma" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5">
+            <child column="conta_id" foreignKey="conta_avaliacao_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="avaliacao_comercio"/>
+            <child column="conta_id" foreignKey="conta_comercio_fk" implied="false" onDeleteCascade="false" schema="public" table="comercio"/>
+            <child column="conta_id" foreignKey="conta_reporte_fk" implied="false" onDeleteCascade="false" schema="public" table="reporte"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome_usuario" nullable="false" remarks="Nome ou apelido de identificacao do usuario" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nome" nullable="false" remarks="Nome completo do usuario" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="telefone" nullable="false" remarks="Telefone de contato do usuario" size="11" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="cep" nullable="false" remarks="CEP do domicilio do usuario" size="8" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="email" nullable="false" remarks="E-mail eletronico do usuario" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="senha" nullable="false" remarks="Senha de login do usuario" size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="7" name="empreendedor" nullable="false" remarks="Informa se o usuario habilitou ou nao o perfil de empreendedor. Desligado por padrão" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="8" name="admin_plataforma" nullable="false" remarks="Informa se o usuario e administrador da plataforma como um todo. Desligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="9" name="ativo" nullable="false" remarks="Informa se a conta do usuario esta ativa na plataforma. Ligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="10" name="ultima_alteracao" nullable="false" remarks="Data e hora da ultima alteracao feita nas informacoes nesse registro" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="conta_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="promocao" numRows="0" remarks="Precos temporarios de itens do catalogo" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="catalogo_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="catalogo_promocao_fk" implied="false" onDeleteCascade="false" schema="public" table="catalogo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="3" id="2" name="preco_promocional" nullable="false" remarks="Preco promocional referente a quantidade_medida minima informada do item/servico" size="7" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="data_inicio" nullable="false" remarks="Data e horario em que se inicia a promocao" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="data_fim" nullable="false" remarks="Data e horario em que termina a promocao se ainda houver estoque" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="5" name="ativo" nullable="false" remarks="Informa se o registro desta promocao esta ativo na plataforma. Ligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="ultima_alteracao" nullable="false" remarks="Data e hora da ultima alteracao feita nas informacoes desse registro" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="promocao_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="reporte" numRows="0" remarks="Denuncias ou elogios feitos pelos usuarios da plataforma" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="Numero de identificacao unica nesta tabela" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="conta_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="conta_reporte_fk" implied="false" onDeleteCascade="false" schema="public" table="conta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="comercio_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="comercio_reporte_fk" implied="false" onDeleteCascade="false" schema="public" table="comercio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="data_abertura" nullable="false" remarks="Data e hora da abertura do reporte na plataforma" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="4" name="catalogo" nullable="false" remarks="Informa se o reporte sera sobre um item do catalogo" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="5" name="promocao" nullable="false" remarks="Informa se o reporte sera sobre uma promocao anunciada" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="detalhes" nullable="false" remarks="Detalhes sobre o que levou o usuario a abrir esse reporte" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'Reporte em analise'::character varying" digits="0" id="7" name="data_conclusao" nullable="false" remarks="Data e hora da conclusao do reporte, informada pelos administradores da plataforma" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'Reporte em analise'::character varying" digits="0" id="8" name="resolucao" nullable="false" remarks="Detalhes informados pelos administradores da plataforma sobre a resolucao do reporte" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="9" name="ativo" nullable="false" remarks="Informa se o registro desse reporte ainda esta em tratativa. Ligado por padrao" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="10" name="ultima_alteracao" nullable="false" remarks="Data e hora da ultima alteracao feita nas informacoes desse registro" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="reporte_pk" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>

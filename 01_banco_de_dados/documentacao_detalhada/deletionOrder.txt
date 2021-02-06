@@ -1,0 +1,6 @@
+reporte
+avaliacao_comercio
+promocao
+catalogo
+comercio
+conta
