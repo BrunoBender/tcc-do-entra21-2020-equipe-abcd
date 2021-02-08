@@ -1,7 +1,9 @@
 package tcc.controller;
 
+import tcc.model.Catalogo;
 import tcc.model.Comercio;
 import tcc.model.Conta;
+import tcc.persistence.CatalogoRepository;
 import tcc.persistence.ContaRepository;
 import tcc.model.dto.ContaAtualizacaoDTO;
 import tcc.model.dto.ContaCriacaoDTO;
@@ -24,6 +26,7 @@ public class ContaRestController {
 	@CrossOrigin
 	@GetMapping("/busca/todas")
 	public List<Conta> buscaTodasContas() {
+
 		return contaRepository.findAll();
 	}
 
@@ -57,6 +60,13 @@ public class ContaRestController {
 	@GetMapping("/busca/nomeUsuario/{nomeUsuario}")
 	public Optional<Conta> buscaComercioPorNomeUsuario(@PathVariable String nomeUsuario) {
 		return contaRepository.findByNomeUsuario(nomeUsuario);
+	}
+
+	@CrossOrigin
+	@GetMapping("/busca/produtos")
+	public List<Catalogo> buscaProdutos(CatalogoRepository catalogoRepository) {
+
+		return catalogoRepository.findAll();
 	}
 
 	
