@@ -1,28 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://css.gg/menu.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="../css/home.css">
     <title>Pagina Inicial</title>
 </head>
+
 <body>
     <header>
         <div class="barraPesquisa">
             <h2 id="tituloBarra">Olá</h2>
-            <img id="iconMenu" src="/assets/menu_bar.png" alt="">
-            <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
+            <div id="pesquisaSpace">
+                <img id="search" src="../assets/search.png">
+                <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
+            </div>
+            <div class="topnav">
+                <div class="active">
+                    <div id="myLinks">
+                        <a href="#">Home</a>
+                        <a href="../pages/upgrade.html">Conta Comercial</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="menu()">
+                        <i class="gg-menu"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
     <main>
-        <div id="lojas">
+        <div id="barraLojas">
+            <img class="lojasImg" src="../assets/home/logo_Mercado.jpg">
+            <img class="lojasImg" src="../assets/home/logo_Mercado2.jpg">
+            <img class="lojasImg" src="../assets/home/logo_salao.jpg">
+            <img class="lojasImg" src="../assets/home/logo_salao2.jpg">
+            <img class="lojasImg" src="../assets/home/loja1.jpg">
+        </div>
+
+        <div id="anuncios">
+
+                <a href="../pages/upgrade.html"><div id="anuncio1" class="gradienteA1">
+                    <img src="../assets/home/Anuncio1.png">
+                    <h2 id="titulA1">Dê um Upgrade</h2>
+                    <p id="textA1">Atualize sua conta para comercial e anuncie seu negócio na plataforma</p>
+                </div></a>
+
+            <div id="anuncio2">
+                <img src="../assets/home/Anuncio2.png">
+            </div>
+        </div>
+
+        <div id="titCat">
+            <h2>Categorias</h2>
+
+            <div class="categorias">
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/shopping 1.png">
+                    <h3>Mercado</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/bread 1.png">
+                    <h3>Padarias</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/clothes-hanger 1.png">
+                    <h3>Brechós</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/yarn-ball 1.png">
+                    <h3>Artesanato</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/hair-dryer 1.png">
+                    <h3>Salões de Beleza</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/drugs 1.png">
+                    <h3>Farmácias</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/tool-button 1.png">
+                    <h3>Ferramentas</h3>
+                </div>
+
+                <div class="item">
+                    <img class="imgItem" src="../assets/home/technical-support 1.png">
+                    <h3>Assistências Técnicas</h3>
+                </div>
+
+            </div>
 
         </div>
+
     </main>
     <footer>
 
     </footer>
+
+    <script src="../js/menu.js"></script>
+    <script src="../js/anuncios.js"></script>
 </body>
+
 </html>

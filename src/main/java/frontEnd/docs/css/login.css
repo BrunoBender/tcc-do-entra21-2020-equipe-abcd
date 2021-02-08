@@ -62,16 +62,27 @@
     padding-right: 10px;
 }
 
+#btnLogin{
+    font-family: Poppins;
+    border-radius: 20px;
+    color: #1E1E1E;
+    border: none;
+    font-size: 18px;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #loginText{
-    margin-left:-160px;
+    margin-left:-195px;
     
 }
 
 input{
     border: none;
-    border-radius: 20px;
-    padding: 5px;
-    font-size: 18px;
+    border-radius: 15px;
+    padding: 3px;
+    font-size: 20px;
     padding-left: 10px;
 }
 

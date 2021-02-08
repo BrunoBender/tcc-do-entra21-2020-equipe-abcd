@@ -23,7 +23,7 @@ function getNomeUsuario(contaIdSenha){
         resposta = JSON.parse(resposta);
         
         if( resposta.contaId === contaIdSenha){
-            alert("Bem Vindo!");
+            window.location.href = "../";
         }
         else{
             alert("Valores inválidos");
