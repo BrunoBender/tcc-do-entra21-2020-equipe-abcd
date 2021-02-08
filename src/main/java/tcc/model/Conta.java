@@ -24,11 +24,11 @@ public class Conta {
 
 	@Column(name="telefone")
 	@NotNull
-	private long telefone;
+	private String telefone;
 
 	@Column(name="cep")
 	@NotNull
-	private long cep;
+	private String cep;
 
 	@Column(name="email")
 	@NotNull
