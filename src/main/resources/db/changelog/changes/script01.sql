@@ -3,8 +3,8 @@ CREATE TABLE public.conta (
 conta_id bigint GENERATED ALWAYS AS IDENTITY ( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1 CACHE 1 NO CYCLE ),
 nome_usuario character varying(50) NOT NULL,
 nome character varying(100) NOT NULL,
-telefone numeric(11,0) NOT NULL,
-cep numeric(8,0) NOT NULL,
+telefone character varying(15) NOT NULL,
+cep character varying(10) NOT NULL,
 email character varying(50) NOT NULL,
 senha character varying(30) NOT NULL,
 criado_em timestamp without time zone NOT NULL DEFAULT NOW(),
@@ -33,13 +33,14 @@ comercio_id bigint GENERATED ALWAYS AS IDENTITY ( INCREMENT BY 1 MINVALUE 1 MAXV
 conta_id bigint NOT NULL,
 nome_fantasia character varying(100) NOT NULL,
 razao_social character varying(100) NOT NULL,
-cnpj numeric(14,0) NOT NULL,
+cnpj character varying(20) NOT NULL,
 logradouro character varying(100) NOT NULL,
 numero_e_complemento character varying(100) NOT NULL,
-cep numeric(8,0) NOT NULL,
+telefone character varying(15) NOT NULL,
+cep character varying(10) NOT NULL,
 bairro character varying(50) NOT NULL,
 cidade character varying(50) NOT NULL,
-contrato_social_hash character varying(50) NOT NULL,
+hash_contrato_social character varying(50) NOT NULL,
 criado_em timestamp without time zone NOT NULL DEFAULT NOW(),
 editado_em timestamp without time zone NOT NULL DEFAULT NOW(),
 comercio_vip boolean NOT NULL DEFAULT false,
@@ -54,10 +55,11 @@ COMMENT ON COLUMN comercio.razao_social IS 'Nome conforme consta no registro ofi
 COMMENT ON COLUMN comercio.cnpj IS 'CNPJ ativo do empreendimento';
 COMMENT ON COLUMN comercio.logradouro IS 'Tipo (Rua, Avenida, etc) e nome do endereco do empreendimento';
 COMMENT ON COLUMN comercio.numero_e_complemento IS 'Numero e complemento (Loja A, Casa B, etc.) do endereco do empreendimento';
+COMMENT ON COLUMN comercio.telefone IS 'Telefone de contato do usuario';
 COMMENT ON COLUMN comercio.cep IS 'CEP da regiao do empreendimento';
 COMMENT ON COLUMN comercio.bairro IS 'Bairro onde se encontra o empreendimento';
 COMMENT ON COLUMN comercio.cidade IS 'Cidade onde se encontra o empreendimento';
-COMMENT ON COLUMN comercio.contrato_social_hash IS 'Chave aleatoria e unica do contrato social cadastrado para o empreendimento';
+COMMENT ON COLUMN comercio.hash_contrato_social IS 'Chave aleatoria e unica do contrato social cadastrado para o empreendimento';
 COMMENT ON COLUMN comercio.criado_em IS 'Data e hora da criacao desse registro';
 COMMENT ON COLUMN comercio.editado_em IS 'Data e hora da ultima edicao feita nesse registro';
 COMMENT ON COLUMN comercio.comercio_vip IS 'Informa se o empreendedor optou pelo plano Comercio VIP. Desligado por padrao';
@@ -72,7 +74,7 @@ nome_descritivo character varying(100) NOT NULL,
 marca character varying(50) NOT NULL,
 medida_usada character varying(20) NOT NULL,
 quantidade_medida numeric(7,3) NOT NULL,
-preco numeric(7,3) NOT NULL,
+preco numeric(7,2) NOT NULL,
 criado_em timestamp without time zone NOT NULL DEFAULT NOW(),
 editado_em timestamp without time zone NOT NULL DEFAULT NOW(),
 item_vip boolean NOT NULL DEFAULT false,
@@ -110,7 +112,7 @@ COMMENT ON COLUMN avaliacao_comercio.nota IS 'Qualifica dada ao empreendimento p
 CREATE TABLE public.promocao (
 promocao_id bigint GENERATED ALWAYS AS IDENTITY ( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1 CACHE 1 NO CYCLE ),
 catalogo_id bigint NOT NULL,
-preco_promocional numeric(7,3) NOT NULL,
+preco_promocional numeric(7,2) NOT NULL,
 data_inicio timestamp without time zone NOT NULL,
 data_fim timestamp without time zone NOT NULL,
 criado_em timestamp without time zone NOT NULL DEFAULT NOW(),
@@ -136,10 +138,10 @@ data_abertura character varying(50) NOT NULL,
 catalogo boolean NOT NULL DEFAULT false,
 promocao boolean NOT NULL DEFAULT false,
 detalhes character varying(4000) NOT NULL,
-data_conclusao character varying(50) NOT NULL DEFAULT 'Reporte em analise',
-resolucao character varying(4000) NOT NULL DEFAULT 'Reporte em analise',
 criado_em timestamp without time zone NOT NULL DEFAULT NOW(),
 editado_em timestamp without time zone NOT NULL DEFAULT NOW(),
+data_conclusao character varying(50) NOT NULL DEFAULT 'Reporte em analise',
+resolucao character varying(4000) NOT NULL DEFAULT 'Reporte em analise',
 ativo boolean NOT NULL DEFAULT true,
 CONSTRAINT reporte_pk PRIMARY KEY (reporte_id),
 CONSTRAINT conta_reporte_fk FOREIGN KEY (conta_id) REFERENCES conta(conta_id),
@@ -151,9 +153,9 @@ COMMENT ON COLUMN reporte.data_abertura IS 'Data e hora da abertura do reporte n
 COMMENT ON COLUMN reporte.catalogo IS 'Informa se o reporte sera sobre um item do catalogo';
 COMMENT ON COLUMN reporte.promocao IS 'Informa se o reporte sera sobre uma promocao anunciada';
 COMMENT ON COLUMN reporte.detalhes IS 'Detalhes sobre o que levou o usuario a abrir esse reporte';
-COMMENT ON COLUMN reporte.data_conclusao IS 'Data e hora da conclusao do reporte, informada pelos administradores da plataforma';
-COMMENT ON COLUMN reporte.resolucao IS 'Detalhes informados pelos administradores da plataforma sobre a resolucao do reporte';
 COMMENT ON COLUMN reporte.criado_em IS 'Data e hora da criacao desse registro';
 COMMENT ON COLUMN reporte.editado_em IS 'Data e hora da ultima edicao feita nesse registro';
+COMMENT ON COLUMN reporte.data_conclusao IS 'Data e hora da conclusao do reporte, informada pelos administradores da plataforma';
+COMMENT ON COLUMN reporte.resolucao IS 'Detalhes informados pelos administradores da plataforma sobre a resolucao do reporte';
 COMMENT ON COLUMN reporte.ativo IS 'Informa se o registro desse reporte ainda esta em tratativa. Ligado por padrao';
 -- Fim do script
