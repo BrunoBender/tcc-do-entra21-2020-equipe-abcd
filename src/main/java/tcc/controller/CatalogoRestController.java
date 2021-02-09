@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/catalogo")
-public class CatalogoController {
+public class CatalogoRestController {
 	private CatalogoRepository catalogoRepository;
 
-	public CatalogoController(CatalogoRepository catalogoRepository){
+	public CatalogoRestController(CatalogoRepository catalogoRepository){
 		this.catalogoRepository = catalogoRepository;
 	}
 
