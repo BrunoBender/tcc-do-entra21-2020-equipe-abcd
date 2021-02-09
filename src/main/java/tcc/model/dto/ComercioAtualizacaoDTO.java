@@ -5,11 +5,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class ComercioAtualizacaoDTO {
 	@Column(name="comercio_id")
 	@NotNull
@@ -26,7 +24,7 @@ public class ComercioAtualizacaoDTO {
 
 	@Column(name="cnpj")
 	@NotNull
-	private long cnpj;
+	private String cnpj;
 
 	@Column(name="logradouro")
 	@NotNull
@@ -36,9 +34,13 @@ public class ComercioAtualizacaoDTO {
 	@NotNull
 	private String numeroEComplemento;
 
+	@Column(name="telefone")
+	@NotNull
+	private String telefone;
+
 	@Column(name="cep")
 	@NotNull
-	private long cep;
+	private String cep;
 
 	@Column(name="bairro")
 	@NotNull
@@ -48,9 +50,9 @@ public class ComercioAtualizacaoDTO {
 	@NotNull
 	private String cidade;
 
-	@Column(name="contrato_social_hash")
+	@Column(name="hash_contrato_social")
 	@NotNull
-	private String contratoSocialHash;
+	private String HashContratoSocial;
 
 	@JsonIgnore
 	private final LocalDateTime editadoEm = LocalDateTime.now();

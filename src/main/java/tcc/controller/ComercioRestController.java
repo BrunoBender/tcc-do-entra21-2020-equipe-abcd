@@ -1,12 +1,12 @@
 package tcc.controller;
 
+import tcc.util.DTO;
 import tcc.model.Comercio;
 import tcc.persistence.ComercioRepository;
 import tcc.model.dto.ComercioAtualizacaoDTO;
 import tcc.model.dto.ComercioCriacaoDTO;
 import java.util.List;
 import java.util.Optional;
-import tcc.util.DTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -39,6 +39,4 @@ public class ComercioRestController {
 
 		comercioRepository.save(comercio);
 	}
-
-
 }
