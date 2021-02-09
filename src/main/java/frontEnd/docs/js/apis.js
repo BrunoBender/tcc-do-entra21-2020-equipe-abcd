@@ -9,6 +9,7 @@ document.getElementById('btnLogin').addEventListener('click', function(){
         } catch (error) {
             alert("Valores inválidos");
         }
+        window.location.href = ".../pages/home.html";
         
     });
     xhr.send();
@@ -23,7 +24,7 @@ function getNomeUsuario(contaIdSenha){
         resposta = JSON.parse(resposta);
         
         if( resposta.contaId === contaIdSenha){
-            alert("Bem Vindo!");
+            window.location.href = "../";
         }
         else{
             alert("Valores inválidos");

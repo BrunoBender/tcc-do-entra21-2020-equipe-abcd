@@ -5,6 +5,8 @@ import tcc.model.Catalogo;
 import tcc.model.Conta;
 import tcc.persistence.CatalogoRepository;
 
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

@@ -14,10 +14,6 @@ public class Catalogo {
 	@Id
 	private long catalogoId;
 
-	@Column(name = "comercio_id")
-	@NotNull
-	private long comercioId;
-
 	@Column(name = "produto")
 	@NotNull
 	private boolean produto;
@@ -61,4 +57,37 @@ public class Catalogo {
 	@Column(name = "ativo")
 	@NotNull
 	private boolean ativo;
+
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name="comercio_id")
+	private Comercio comercio;
+
+	public Catalogo(){
+
+	}
+
+	public Catalogo(long catalogoId, @NotNull boolean produto, @NotNull String categoria, @NotNull String nomeDescritivo, @NotNull String marca, @NotNull String medidaUsada, @NotNull double quantidadeMedida, @NotNull double preco, @NotNull LocalDateTime criadoEm, @NotNull LocalDateTime editadoEm, @NotNull boolean itemVip, @NotNull boolean ativo, Comercio comercio) {
+		this.catalogoId = catalogoId;
+		this.produto = produto;
+		this.categoria = categoria;
+		this.nomeDescritivo = nomeDescritivo;
+		this.marca = marca;
+		this.medidaUsada = medidaUsada;
+		this.quantidadeMedida = quantidadeMedida;
+		this.preco = preco;
+		this.criadoEm = criadoEm;
+		this.editadoEm = editadoEm;
+		this.itemVip = itemVip;
+		this.ativo = ativo;
+		this.comercio = comercio;
+	}
+
+
+
+
+
+
+
+
 }
