@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/comercios")
-@Tag(name = "comercio", description = "API do Comercio")
+@Tag(name = "Comércios", description = "API dos Comércios")
 public class ComercioRestController {
 	private ComercioRepository comercioRepository;
 
@@ -23,14 +23,14 @@ public class ComercioRestController {
 
 	@Operation(summary = "Busca todos os comércios", tags = { "comercio" })
 	@CrossOrigin
-	@GetMapping("/busca/todos")
+	@GetMapping("")
 	public List<Comercio> buscaTodosComercios() {
 		return comercioRepository.findAll();
 	}
 
 	@Operation(summary = "Busca comércio por id", tags = { "comercio" })
 	@CrossOrigin
-	@GetMapping("/busca/{comercioId}")
+	@GetMapping("/id/{comercioId}")
 	public Optional<Comercio> buscaComercioPorId(@PathVariable long comercioId) {
 		return comercioRepository.findById(comercioId);
 	}

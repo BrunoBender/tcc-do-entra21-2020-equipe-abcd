@@ -15,7 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/contas")
-@Tag(name = "conta", description = "API da Conta")
+@Tag(name = "Contas", description = "API das Contas")
 public class ContaRestController {
 	private ContaRepository contaRepository;
 
@@ -25,14 +25,14 @@ public class ContaRestController {
 
 	@Operation(summary = "Busca todas as contas", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/todas")
+	@GetMapping("")
 	public List<Conta> buscaTodasContas() {
 		return contaRepository.findAll();
 	}
 
 	@Operation(summary = "Busca conta por id", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/{contaId}")
+	@GetMapping("/id/{contaId}")
 	public Optional<Conta> buscaContaPorId(@PathVariable long contaId) {
 		return contaRepository.findById(contaId);
 	}
@@ -54,21 +54,21 @@ public class ContaRestController {
 
 	@Operation(summary = "Busca conta por senha", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/{senha}")
+	@GetMapping("/senha/{senha}")
 	public Optional<Conta> buscaComercioPorSenha(@PathVariable String senha) {
 		return contaRepository.findBySenha(senha);
 	}
 
-	@Operation(summary = "Busca comércio por nome de usuário", tags = { "conta" })
+	@Operation(summary = "Busca conta por nome de usuário", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/{nomeUsuario}")
+	@GetMapping("/nomeusuario/{nomeUsuario}")
 	public Optional<Conta> buscaComercioPorNomeUsuario(@PathVariable String nomeUsuario) {
 		return contaRepository.findByNomeUsuario(nomeUsuario);
 	}
 
 	@Operation(summary = "Busca produto (?)", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/produtos")
+	@GetMapping("/produtos/todos")
 	public List<Catalogo> buscaProdutos(CatalogoRepository catalogoRepository) {
 		return catalogoRepository.findAll();
 	}
