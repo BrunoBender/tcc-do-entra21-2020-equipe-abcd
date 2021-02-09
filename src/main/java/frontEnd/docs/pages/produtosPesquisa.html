@@ -100,7 +100,6 @@
                                     arrayProdutos.push(infoProduto);
 
                                     if (arrayProdutos.length == produtos.length) {
-                                        console.log(arrayProdutos.length);
                                         //organiza a lista por melhor opção
                                         arrayProdutos = organizaProdutos(arrayProdutos);
                                         //cria as divs
@@ -167,7 +166,7 @@
             }
         }
 
-        //organiza os produtos por melhor opção dentro do array
+        //organiza os produtos por melhor opção dentro do array 
         function organizaProdutos(arrayProdutos){
             
                 let temp;
@@ -176,8 +175,12 @@
                 for(let j = 0; j < arrayProdutos.length; j++) {
                     for(let i = 0; i < arrayProdutos.length-1; i++) {
                         // -------------- + + fórmula mágica + +-----------------------
-                        let soma1 = arrayProdutos[i].preco + arrayProdutos[i].distancia;
+                        let soma1 = Number( arrayProdutos[i].preco) + Number(arrayProdutos[i].distancia);
                         let soma2 = arrayProdutos[i+1].preco + arrayProdutos[i+1].distancia;
+                        console.log('preco: '+arrayProdutos[i].preco);
+                        console.log('distancia: '+arrayProdutos[i].distancia);
+                        console.log('soma: '+soma1);
+                        console.log('----------');
 
                         if (soma1 > soma2) {
                             temp = arrayProdutos[i];

@@ -38,6 +38,10 @@ public class Comercio {
 	@NotNull
 	private String numeroEComplemento;
 
+	@Column(name="telefone")
+	@NotNull
+	private String telefone;
+
 	@Column(name="cep")
 	@NotNull
 	private long cep;

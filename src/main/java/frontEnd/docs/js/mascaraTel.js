@@ -19,6 +19,6 @@ var rua;
 var comp;
 
 cep.addEventListener('focusout', function () {
-   buscarCep(cep.value)
+   buscarCep(cep.value);
 
 })
