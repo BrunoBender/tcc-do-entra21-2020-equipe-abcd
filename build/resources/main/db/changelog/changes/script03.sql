@@ -1,1 +1,0 @@
-insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento, cep, bairro, cidade, contrato_social_hash) values (1, 'Supermercado da Cidade', 'Supermercado Blumenau ME', 1234, 'Rua Qualquer', '0 Loja Z', 89032001, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
