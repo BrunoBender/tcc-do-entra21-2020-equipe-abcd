@@ -1,5 +1,6 @@
 package tcc.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import tcc.util.DTO;
 import tcc.model.Conta;
 import tcc.model.Catalogo;
@@ -10,9 +11,11 @@ import tcc.model.dto.ContaCriacaoDTO;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/contas")
+@Tag(name = "conta", description = "API da Conta")
 public class ContaRestController {
 	private ContaRepository contaRepository;
 
@@ -20,24 +23,28 @@ public class ContaRestController {
 		this.contaRepository = contaRepository;
 	}
 
+	@Operation(summary = "Busca todas as contas", tags = { "conta" })
 	@CrossOrigin
 	@GetMapping("/busca/todas")
 	public List<Conta> buscaTodasContas() {
 		return contaRepository.findAll();
 	}
 
+	@Operation(summary = "Busca conta por id", tags = { "conta" })
 	@CrossOrigin
 	@GetMapping("/busca/{contaId}")
 	public Optional<Conta> buscaContaPorId(@PathVariable long contaId) {
 		return contaRepository.findById(contaId);
 	}
 
+	@Operation(summary = "Cria uma conta", tags = { "conta" })
 	@CrossOrigin
 	@PostMapping("/cria")
 	public void novaConta(@DTO(ContaCriacaoDTO.class) Conta conta) {
 		contaRepository.save(conta);
 	}
 
+	@Operation(summary = "Atualiza todas as informações de uma conta por id", tags = { "conta" })
 	@CrossOrigin
 	@PutMapping("/atualiza/{contaId}")
 	public void atualizaConta(@DTO(ContaAtualizacaoDTO.class) Conta conta, @PathVariable long contaId) {
@@ -45,18 +52,21 @@ public class ContaRestController {
 		contaRepository.save(conta);
 	}
 
+	@Operation(summary = "Busca conta por senha", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/senha/{senhaId}")
-	public Optional<Conta> buscaComercioPorSenha(@PathVariable String senhaId) {
-		return contaRepository.findBySenha(senhaId);
+	@GetMapping("/busca/{senha}")
+	public Optional<Conta> buscaComercioPorSenha(@PathVariable String senha) {
+		return contaRepository.findBySenha(senha);
 	}
 
+	@Operation(summary = "Busca comércio por nome de usuário", tags = { "conta" })
 	@CrossOrigin
-	@GetMapping("/busca/nomeUsuario/{nomeUsuario}")
+	@GetMapping("/busca/{nomeUsuario}")
 	public Optional<Conta> buscaComercioPorNomeUsuario(@PathVariable String nomeUsuario) {
 		return contaRepository.findByNomeUsuario(nomeUsuario);
 	}
 
+	@Operation(summary = "Busca produto (?)", tags = { "conta" })
 	@CrossOrigin
 	@GetMapping("/busca/produtos")
 	public List<Catalogo> buscaProdutos(CatalogoRepository catalogoRepository) {
