@@ -55,7 +55,7 @@ public class ComercioAtualizacaoDTO {
 	private String hashContratoSocial;
 
 	@JsonIgnore
-	private final LocalDateTime editadoEm  =  LocalDateTime.now();
+	private final LocalDateTime editadoEm = LocalDateTime.now();
 
 	@Column(name = "comercio_vip")
 	@NotNull

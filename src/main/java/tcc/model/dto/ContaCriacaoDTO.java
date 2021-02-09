@@ -33,8 +33,8 @@ public class ContaCriacaoDTO {
 	private String senha;
 
 	@JsonIgnore
-	private final LocalDateTime criadoEm  =  LocalDateTime.now();
+	private final LocalDateTime criadoEm = LocalDateTime.now();
 
 	@JsonIgnore
-	private final LocalDateTime editadoEm  =  LocalDateTime.now();
+	private final LocalDateTime editadoEm = LocalDateTime.now();
 }

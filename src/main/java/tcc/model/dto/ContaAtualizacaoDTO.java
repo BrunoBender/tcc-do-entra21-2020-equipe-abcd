@@ -39,7 +39,7 @@ public class ContaAtualizacaoDTO {
 	private String senha;
 
 	@JsonIgnore
-	private final LocalDateTime editadoEm  =  LocalDateTime.now();
+	private final LocalDateTime editadoEm = LocalDateTime.now();
 
 	@Column(name = "empreendedor")
 	@NotNull
