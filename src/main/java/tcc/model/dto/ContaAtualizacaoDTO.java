@@ -5,11 +5,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class ContaAtualizacaoDTO {
 	@Column(name="conta_id")
 	@NotNull

@@ -4,11 +4,9 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class ContaCriacaoDTO {
 	@Column(name="nome_usuario")
 	@NotNull

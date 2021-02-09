@@ -1,23 +1,20 @@
 package tcc.controller;
 
-import tcc.model.Catalogo;
-import tcc.model.Comercio;
+import tcc.util.DTO;
 import tcc.model.Conta;
-import tcc.persistence.CatalogoRepository;
+import tcc.model.Catalogo;
 import tcc.persistence.ContaRepository;
+import tcc.persistence.CatalogoRepository;
 import tcc.model.dto.ContaAtualizacaoDTO;
 import tcc.model.dto.ContaCriacaoDTO;
 import java.util.List;
 import java.util.Optional;
-import tcc.util.DTO;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/contas")
 public class ContaRestController {
 	private ContaRepository contaRepository;
-
 
 	public ContaRestController(ContaRepository contaRepository) {
 		this.contaRepository = contaRepository;
@@ -26,7 +23,6 @@ public class ContaRestController {
 	@CrossOrigin
 	@GetMapping("/busca/todas")
 	public List<Conta> buscaTodasContas() {
-
 		return contaRepository.findAll();
 	}
 
@@ -46,7 +42,6 @@ public class ContaRestController {
 	@PutMapping("/atualiza/{contaId}")
 	public void atualizaConta(@DTO(ContaAtualizacaoDTO.class) Conta conta, @PathVariable long contaId) {
 		conta.setContaId(contaId);
-
 		contaRepository.save(conta);
 	}
 
@@ -65,9 +60,6 @@ public class ContaRestController {
 	@CrossOrigin
 	@GetMapping("/busca/produtos")
 	public List<Catalogo> buscaProdutos(CatalogoRepository catalogoRepository) {
-
 		return catalogoRepository.findAll();
 	}
-
-	
 }
