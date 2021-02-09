@@ -9,47 +9,47 @@ import lombok.Data;
 
 @Data
 public class ContaAtualizacaoDTO {
-	@Column(name="conta_id")
+	@Column(name = "conta_id")
 	@NotNull
 	@Id
 	private long contaId;
 
-	@Column(name="nome_usuario")
+	@Column(name = "nome_usuario", length = 50)
 	@NotNull
 	private String nomeUsuario;
 
-	@Column(name="nome")
+	@Column(name = "nome", length = 100)
 	@NotNull
 	private String nome;
 
-	@Column(name="telefone")
+	@Column(name = "telefone", length = 15)
 	@NotNull
-	private long telefone;
+	private String telefone;
 
-	@Column(name="cep")
+	@Column(name = "cep", length = 10)
 	@NotNull
-	private long cep;
+	private String cep;
 
-	@Column(name="email")
+	@Column(name = "email", length = 50)
 	@NotNull
 	private String email;
 
-	@Column(name="senha")
+	@Column(name = "senha", length = 30)
 	@NotNull
 	private String senha;
 
 	@JsonIgnore
-	private final LocalDateTime editadoEm = LocalDateTime.now();
+	private final LocalDateTime editadoEm  =  LocalDateTime.now();
 
-	@Column(name="empreendedor")
+	@Column(name = "empreendedor")
 	@NotNull
 	private boolean empreendedor;
 
-	@Column(name="admin_plataforma")
+	@Column(name = "admin_plataforma")
 	@NotNull
 	private boolean adminPlataforma;
 
-	@Column(name="ativo")
+	@Column(name = "ativo")
 	@NotNull
 	private boolean ativo;
 }

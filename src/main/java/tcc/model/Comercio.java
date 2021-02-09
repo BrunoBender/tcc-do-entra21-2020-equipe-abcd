@@ -59,7 +59,7 @@ public class Comercio {
 
 	@Column(name = "hash_contrato_social", length = 50)
 	@NotNull
-	private String HashContratoSocial;
+	private String hashContratoSocial;
 
 	@Column(name = "criado_em")
 	@NotNull
