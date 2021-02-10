@@ -1,6 +1,7 @@
 package tcc.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -17,9 +18,10 @@ public class Catalogo {
 	@Id
 	private long catalogoId;
 
-	@Column(name = "comercio_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "comercio_id")
 	@NotNull
-	private long comercioId;
+	private Comercio comercio;
 
 	@Column(name = "produto")
 	@NotNull
@@ -65,8 +67,7 @@ public class Catalogo {
 	@NotNull
 	private boolean ativo;
 
-	@ManyToOne
-	@JoinColumn(name = "comercio_id")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "promocao")
 	@NotNull
-	private Comercio comercio;
+	private List<Promocao> promocoes;
 }

@@ -17,13 +17,15 @@ public class Reporte {
 	@Id
 	private long reporteId;
 
-	@Column(name = "conta_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "conta_id")
 	@NotNull
-	private long contaId;
+	private Conta conta;
 
-	@Column(name = "comercio_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "comercio_id")
 	@NotNull
-	private long comercioId;
+	private Comercio comercio;
 
 	@Column(name = "data_abertura", length = 15)
 	@NotNull

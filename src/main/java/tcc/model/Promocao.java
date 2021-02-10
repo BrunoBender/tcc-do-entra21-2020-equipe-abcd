@@ -17,9 +17,10 @@ public class Promocao {
 	@Id
 	private long promocaoId;
 
-	@Column(name = "catalogo_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "catalogo_id")
 	@NotNull
-	private long catalogoId;
+	private Catalogo catalogo;
 
 	@Column(name = "preco_promocional")
 	@NotNull

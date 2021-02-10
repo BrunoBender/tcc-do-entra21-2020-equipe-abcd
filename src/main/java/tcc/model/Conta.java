@@ -1,6 +1,7 @@
 package tcc.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -60,4 +61,16 @@ public class Conta {
 	@Column(name = "ativo")
 	@NotNull
 	private boolean ativo;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "comercio")
+	@NotNull
+	private List<Comercio> comercios;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "avaliacao_comercio")
+	@NotNull
+	private List<AvaliacaoComercio> avaliacoes;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "reporte")
+	@NotNull
+	private List<Reporte> reportes;
 }
