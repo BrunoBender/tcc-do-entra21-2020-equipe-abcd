@@ -21,28 +21,28 @@ public class ComercioRestController {
 		this.comercioRepository = comercioRepository;
 	}
 
-	@Operation(summary = "Busca todos os comércios", tags = { "comercio" })
+	@Operation(summary = "Busca todos os comércios", tags = { "Comércios" })
 	@CrossOrigin
 	@GetMapping("")
 	public List<Comercio> buscaTodosComercios() {
 		return comercioRepository.findAll();
 	}
 
-	@Operation(summary = "Busca comércio por id", tags = { "comercio" })
+	@Operation(summary = "Busca comércio por id", tags = { "Comércios" })
 	@CrossOrigin
 	@GetMapping("/id/{comercioId}")
 	public Optional<Comercio> buscaComercioPorId(@PathVariable long comercioId) {
 		return comercioRepository.findById(comercioId);
 	}
 
-	@Operation(summary = "Cadastra um comércio", tags = { "conta" })
+	@Operation(summary = "Cadastra um comércio", tags = { "Comércios" })
 	@CrossOrigin
 	@PostMapping("/cria")
 	public void novoComercio(@DTO(ComercioCriacaoDTO.class) Comercio comercio) {
 		comercioRepository.save(comercio);
 	}
 
-	@Operation(summary = "Atualiza todas as informações de um comércio por id", tags = { "conta" })
+	@Operation(summary = "Atualiza todas as informações de um comércio por id", tags = { "Comércios" })
 	@CrossOrigin
 	@PutMapping("/atualiza/{comercioId}")
 	public void atualizaComercio(@DTO(ComercioAtualizacaoDTO.class) Comercio comercio, @PathVariable long comercioId) {

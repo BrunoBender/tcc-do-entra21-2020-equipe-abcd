@@ -1,6 +1,5 @@
 package tcc.controller;
 
-import io.swagger.v3.oas.annotations.Operation;
 import tcc.util.DTO;
 import tcc.model.Conta;
 import tcc.model.Catalogo;
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/contas")
@@ -23,28 +23,28 @@ public class ContaRestController {
 		this.contaRepository = contaRepository;
 	}
 
-	@Operation(summary = "Busca todas as contas", tags = { "conta" })
+	@Operation(summary = "Busca todas as contas", tags = { "Contas" })
 	@CrossOrigin
 	@GetMapping("")
 	public List<Conta> buscaTodasContas() {
 		return contaRepository.findAll();
 	}
 
-	@Operation(summary = "Busca conta por id", tags = { "conta" })
+	@Operation(summary = "Busca conta por id", tags = { "Contas" })
 	@CrossOrigin
 	@GetMapping("/id/{contaId}")
 	public Optional<Conta> buscaContaPorId(@PathVariable long contaId) {
 		return contaRepository.findById(contaId);
 	}
 
-	@Operation(summary = "Cria uma conta", tags = { "conta" })
+	@Operation(summary = "Cria uma conta", tags = { "Contas" })
 	@CrossOrigin
 	@PostMapping("/cria")
 	public void novaConta(@DTO(ContaCriacaoDTO.class) Conta conta) {
 		contaRepository.save(conta);
 	}
 
-	@Operation(summary = "Atualiza todas as informações de uma conta por id", tags = { "conta" })
+	@Operation(summary = "Atualiza todas as informações de uma conta por id", tags = { "Contas" })
 	@CrossOrigin
 	@PutMapping("/atualiza/{contaId}")
 	public void atualizaConta(@DTO(ContaAtualizacaoDTO.class) Conta conta, @PathVariable long contaId) {
