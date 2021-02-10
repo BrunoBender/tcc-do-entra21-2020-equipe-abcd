@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://css.gg/menu.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/minhaConta.css">
+    <title>Minha Conta</title>
+</head>
+
+<body>
+    <header>
+        <div class="barraPesquisa">
+            <h2 id="tituloBarra">Olá</h2>
+            <div id="pesquisaSpace">
+                <img id="search" src="../assets/search.png">
+                <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
+            </div>
+            <div class="topnav">
+                <div class="active">
+                    <div id="myLinks">
+                        <!--Mudar menu para o comercial-->
+                        <a href="#">Home</a>
+                        <a href="../pages/upgrade.html">Conta Comercial</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="menu()">
+                        <i class="gg-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form action="" id="form">
+            <h2>Minha Conta</h2>
+            <label for="nome">Nome </label>
+            <input type="text" name="nome" id="nome">
+            <br><br>
+            <label for="nomeUsuario">Nome de Usuário </label>
+            <input type="text" name="nomeUsuario" id="nomeUsuario">
+            <br><br>
+            <label for="telefone">Telefone </label>
+            <input type="text" name="telefone" id="telefone">
+            <br><br>
+            <label for="cep">CEP </label>
+            <input type="number" name="cep" id="cep">
+            <br><br>
+            <label for="email">E-mail </label>
+            <input type="text" name="email" id="email">
+            <br><br>
+            <label for="senha">Senha </label>
+            <input type="password" name="senha" id="senha">
+            <br><br>
+            <label for="tipoConta">Tipo de Conta</label><br>
+            <div id="divTipConta">
+                <!--Substituir o texto de tipoConta para a conta do cliente-->
+                <label for="tipoConta">Pessoal</label>
+            </div>
+            <br><br>
+            <input id="btnAtu" type="button" value="Atualizar Cadastro" >
+        </form>
+
+    </main>
+    <script src="../js/menu.js"></script>
+</body>
+
+</html>
