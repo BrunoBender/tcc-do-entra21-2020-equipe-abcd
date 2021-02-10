@@ -1,7 +1,26 @@
-insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (1, 'Supermercado da Cidade', 'Supermercado Blumenau ME', 1234, 'Rua Qualquer', '0 Loja Z','9999', 89020600, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (2, 'Supermercado Marcinha', 'Supermercado Blumenau ME', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (1, 'Supermercado da Cidade', 'Mercado', 1234, 'Rua Qualquer', '0 Loja Z','9999', 89020600, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (2, 'Mercado Marcinha', 'Mercado', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (3, 'Baratão', 'Mercado', 1234, 'Rua Bahia', '0 Loja Z','99999', 89075295 , 'Fortaleza', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (4, 'SuberM', 'Mercado', 1234, 'Rua Miranda', '0 Loja Z','99999', 89075295, 'Miraguaia', 'Indaial', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (5, 'Martins', 'Mercado', 1234, 'Rua Vissello', '0 Loja Z','99999',  89075295 , 'Água Verde', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (6, 'Padaria Fabi', 'Padaria', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Vila Itoupava', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (7, 'Bom pão', 'Padaria', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Pedro Simon', 'Gaspar', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (8, 'Boa vida', 'Farmacia', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Pedro Simon', 'Gaspar', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (9, 'União', 'Farmacia', 1234, 'Rua Aquela', '0 Loja Z','99999', 89075295, 'Pedro Simon', 'Gaspar', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (10, 'Tião', 'Salão de Beleza', 1234, 'Rua Miranda', '0 Loja Z','99999', 89075295, 'Miraguaia', 'Indaial', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (11, 'Cabeleireira Leila', 'Salão de Beleza', 1234, 'Rua Vissello', '0 Loja Z','99999', 89075295, 'Água Verde', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+insert into comercio(conta_id, nome_fantasia, razao_social, cnpj, logradouro, numero_e_complemento,telefone, cep, bairro, cidade, contrato_social_hash) values (12, 'Bom estilo', 'Salão de Beleza', 1234, 'Rua Bahia', '0 Loja Z','99999', 89075295 , 'Fortaleza', 'Blumenau', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
 
 insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (1, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 20.99);
 insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (2, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 20.6, 10.99);
-insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (1, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 5.99);
-insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (2, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 45.99);
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (3, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 5.99);
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (4, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 45.99);
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (5, true, 'Frutas', 'Banana', 'inNatura', 'Kg', 40.6, 30.00);
+
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (10, true, 'Corte', 'Corte Masculino', 'Masculino', 'Uni', 40.6, 45.99);
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (11, true, 'Corte', 'Corte Masculino', 'Masculino', 'Uni', 40.6, 10.99);
+insert into catalogo(comercio_id, produto, categoria, nome_descritivo, marca, medida_usada, quantidade_medida, preco) values (12, true, 'Corte', 'Corte Masculino', 'Masculino', 'Uni', 40.6, 30.59);
