@@ -3,7 +3,10 @@ package tcc.controller;
 import org.springframework.web.bind.annotation.*;
 import tcc.model.Catalogo;
 import tcc.model.Conta;
+import tcc.model.dto.CatalogoAtualizacaoDTO;
+import tcc.model.dto.CatalogoCriacaoDTO;
 import tcc.persistence.CatalogoRepository;
+import tcc.util.DTO;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -33,6 +36,19 @@ public class CatalogoController {
 
         List<Catalogo> lista = catalogoRepository.findByNomeDescritivo(nomeDescritivo);
         return organizaPorPreco(lista);
+    }
+
+    @CrossOrigin
+    @PostMapping("/cria")
+    public void novoItem(@DTO(CatalogoCriacaoDTO.class) Catalogo catalogo) {
+        catalogoRepository.save(catalogo);
+    }
+
+    @CrossOrigin
+    @PutMapping("/atualiza/{itemId}")
+    public void atualizaItem(@DTO(CatalogoAtualizacaoDTO.class) Catalogo catalogo, @PathVariable long itemId) {
+        catalogo.setCatalogoId(itemId);
+        catalogoRepository.save(catalogo);
     }
 
     public List<Catalogo> organizaPorPreco(List <Catalogo> lista){
