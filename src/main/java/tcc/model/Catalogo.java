@@ -64,4 +64,9 @@ public class Catalogo {
 	@Column(name = "ativo")
 	@NotNull
 	private boolean ativo;
+
+	@ManyToOne
+	@JoinColumn(name = "comercio_id")
+	@NotNull
+	private Comercio comercio;
 }
