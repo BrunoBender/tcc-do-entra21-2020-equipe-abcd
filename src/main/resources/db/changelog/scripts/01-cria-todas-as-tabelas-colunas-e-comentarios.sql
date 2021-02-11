@@ -1,4 +1,3 @@
---- Inicio do script
 CREATE TABLE public.conta (
 conta_id bigint GENERATED ALWAYS AS IDENTITY ( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1 CACHE 1 NO CYCLE ),
 nome_usuario character varying(50) NOT NULL,
@@ -117,7 +116,7 @@ data_inicio character varying(15) NOT NULL,
 data_fim character varying(15) NOT NULL,
 criado_em timestamp without time zone DEFAULT NOW(),
 editado_em timestamp without time zone DEFAULT NOW(),
-ativo boolean NOT NULL true,
+ativo boolean DEFAULT true,
 CONSTRAINT promocao_pk PRIMARY KEY (promocao_id),
 CONSTRAINT catalogo_promocao_fk FOREIGN KEY (catalogo_id) REFERENCES catalogo(catalogo_id)
 );
@@ -158,4 +157,3 @@ COMMENT ON COLUMN reporte.editado_em IS 'Data e hora da ultima edicao feita ness
 COMMENT ON COLUMN reporte.data_conclusao IS 'Data e hora da conclusao do reporte, informada pelos administradores da plataforma';
 COMMENT ON COLUMN reporte.resolucao IS 'Detalhes informados pelos administradores da plataforma sobre a resolucao do reporte';
 COMMENT ON COLUMN reporte.ativo IS 'Informa se o registro desse reporte ainda esta em tratativa. Ligado por padrao';
--- Fim do script
