@@ -1,13 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog
-				xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-				xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
-    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-
-<!--	<include file="/db/changelog/changes/create-patient-table-changelog-1.xml"/>-->
-<!--	<include file="/db/changelog/changes/insert-patient-table-changelog-2.xml"/>-->
-<!--	<include file="/db/changelog/changes/update-patient-table-precondition-3.xml"/>-->
-	<include file="/db/changelog/changes/"/>
-</databaseChangeLog>
+databaseChangeLog:
+  - changeSet:
+      id: criaTodasTabelas
+      author: Equipe ABCD do Entra21 2020
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            endDelimiter: \n/\s*\n|\n/\s*$
+            path: db/changelog/scripts/01-cria-todas-as-tabelas-colunas-e-comentarios.sql
+            splitStatements: true
+            stripComments: false
+  - changeSet:
+      id: InsereDadosEmConta
+      author: Equipe ABCD do Entra21 2020
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            path: db/changelog/scripts/02-insere-dados-na-tabela-conta.sql
+            splitStatements: true
+            stripComments: false
+  - changeSet:
+      id: InsereDadosEmComercio
+      author: Equipe ABCD do Entra21 2020
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            encoding: utf8
+            path: db/changelog/scripts/03-insere-dados-na-tabela-comercio.sql
+            splitStatements: true
+            stripComments: false
