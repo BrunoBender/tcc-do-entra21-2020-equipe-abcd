@@ -9,6 +9,7 @@
     <link href='https://css.gg/menu.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/perfilLoja.css">
+    <link rel="stylesheet" href="../css/categorias.css">
     <title>Perfil</title>
 </head>
 
@@ -23,8 +24,7 @@
             <div class="topnav">
                 <div class="active">
                     <div id="myLinks">
-                        <a href="#">Home</a>
-                        <a href="#">Conta Comercial</a>
+                        <a href="home.html">Home</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="menu()">
                         <i class="gg-menu"></i>
@@ -34,13 +34,23 @@
         </div>
     </header>
     <main>
-        <div id="perfil">
+        <div id="cabecalho">   
             <img class="logoPerfil" src="../assets/home/logo_Mercado.jpg" alt="logo">
-            <h2>Mercado Happy Shopping</h2>
-            <p>Categoria:______  |  Distancia: _______    | Avaliação:_______</p>
+            <div id="infos">
+                <h2 id="idNome">Mercado Happy Shopping</h2>
+                <p id="idInfo">Categoria:______  |  Distancia: _______    | Avaliação:_______</p>
+            </div>
         </div>
+        
+        <table id="selecao">
+            
+            
+
+            </div>
+        </table>
     </main>
     <script src="../js/menu.js"></script>
+    <script src="../js/perfilLoja.js"></script>
 </body>
 
 </html>

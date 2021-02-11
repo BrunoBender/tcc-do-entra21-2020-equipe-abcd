@@ -29,6 +29,11 @@ public class ComercioRestController {
 	public Optional<Comercio> buscaComercioPorId(@PathVariable long comercioId) {
 		return comercioRepository.findById(comercioId);
 	}
+	@CrossOrigin
+	@GetMapping("/busca/userId/{contaId}")
+	public List<Comercio> buscaComercioPorUserId(@PathVariable long contaId) {
+		return comercioRepository.findBycontaId(contaId);
+	}
 
 	@CrossOrigin
 	@PostMapping("/cria")

@@ -26,7 +26,7 @@ public class ContaAtualizacaoDTO {
 
 	@Column(name="telefone")
 	@NotNull
-	private long telefone;
+	private String telefone;
 
 	@Column(name="cep")
 	@NotNull

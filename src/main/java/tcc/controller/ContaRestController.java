@@ -65,8 +65,13 @@ public class ContaRestController {
 	@CrossOrigin
 	@GetMapping("/busca/produtos")
 	public List<Catalogo> buscaProdutos(CatalogoRepository catalogoRepository) {
-
 		return catalogoRepository.findAll();
+	}
+
+	@CrossOrigin
+	@DeleteMapping("/deleta/{contaId}")
+	public void buscaComercioPorNomeUsuario(@PathVariable long contaId) {
+		 contaRepository.deleteById(contaId);
 	}
 
 	

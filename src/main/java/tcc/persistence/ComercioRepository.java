@@ -15,4 +15,7 @@ public interface ComercioRepository extends JpaRepository<Comercio, Long> {
 
     @Query("Select u from Comercio u where u.contaId = :contaId")
     List<Comercio> findByContaId(@Param("contaId") Long contaId);
+
+    @Query("Select u from Comercio u where u.contaId = :contaId")
+    List<Comercio> findBycontaId(@Param("contaId") Long contaId);
 }

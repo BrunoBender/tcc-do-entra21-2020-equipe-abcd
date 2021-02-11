@@ -8,6 +8,10 @@ import lombok.Data;
 
 @Data
 public class CatalogoCriacaoDTO {
+	@Column(name = "comercio_id")
+	@NotNull
+	private Long comercioId;
+
 	@Column(name = "produto")
 	@NotNull
 	private boolean produto;
@@ -40,10 +44,8 @@ public class CatalogoCriacaoDTO {
 	private final LocalDateTime editadoEm = LocalDateTime.now();
 
 	@Column(name = "item_vip")
-	@NotNull
 	private boolean itemVip;
 
 	@Column(name = "ativo")
-	@NotNull
 	private boolean ativo;
 }
