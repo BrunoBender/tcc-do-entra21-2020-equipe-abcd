@@ -43,13 +43,13 @@
 
         <div id="anuncios">
 
-                <a href="../pages/upgrade.html">
-                    <div id="anuncio1" class="gradienteA1">
+            <a href="../pages/upgrade.html">
+                <div id="anuncio1" class="gradienteA1">
                     <img src="../assets/home/Anuncio1.png">
                     <h2 id="titulA1">Dê um Upgrade</h2>
                     <p id="textA1">Atualize sua conta para comercial e anuncie seu negócio na plataforma</p>
                 </div>
-                </a>
+            </a>
 
             <div id="anuncio2" hidden>
                 <img src="../assets/home/Anuncio2.png">
@@ -61,64 +61,63 @@
 
             <div class="categorias">
 
-
-                    <div class="item">
-                        <a href="../pages/mercado.html">
+                <div class="item">
+                    <a href="../pages/mercado.html">
                         <img class="imgItem" src="../assets/home/Cat_Mercado.png">
                         <h3>Mercado</h3>
-                </a>
-            </div>
+                    </a>
+                </div>
 
                 <div class="item">
                     <a href="../pages/padaria.html">
-                    <img class="imgItem" src="../assets/home/Cat_Padaria.png">
-                    <h3>Padarias</h3>
-            </a>
-        </div>
+                        <img class="imgItem" src="../assets/home/Cat_Padaria.png">
+                        <h3>Padarias</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/brecho.html">
-                <img class="imgItem" src="../assets/home/Cat_Brecho.png">
-                <h3>Brechós</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/brecho.html">
+                        <img class="imgItem" src="../assets/home/Cat_Brecho.png">
+                        <h3>Brechós</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/artesanato.html">
-                <img class="imgItem" src="../assets/home/Cat_Artesanato.png">
-                <h3>Lojas de Artesanato</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/artesanato.html">
+                        <img class="imgItem" src="../assets/home/Cat_Artesanato.png">
+                        <h3>Lojas de Artesanato</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/saloesDeBeleza.html">
-                <img class="imgItem" src="../assets/home/Cat_Salao.png">
-                <h3>Salões de Beleza</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/saloesDeBeleza.html">
+                        <img class="imgItem" src="../assets/home/Cat_Salao.png">
+                        <h3>Salões de Beleza</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/farmácias.html">
-                <img class="imgItem" src="../assets/home/Cat_Farmacia.png">
-                <h3>Farmácias</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/farmácias.html">
+                        <img class="imgItem" src="../assets/home/Cat_Farmacia.png">
+                        <h3>Farmácias</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/construcao.html">
-                <img class="imgItem" src="../assets/home/Cat_Construcao.png">
-                <h3>Lojas de Construção</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/construcao.html">
+                        <img class="imgItem" src="../assets/home/Cat_Construcao.png">
+                        <h3>Lojas de Construção</h3>
+                    </a>
+                </div>
 
-            <div class="item">
-                <a href="../pages/assistenciaTec.html">
-                <img class="imgItem" src="../assets/home/Cat_Assist_Tec.png">
-                <h3>Assistências Técnicas</h3>
-        </a>
-        </div>
+                <div class="item">
+                    <a href="../pages/assistenciaTec.html">
+                        <img class="imgItem" src="../assets/home/Cat_Assist_Tec.png">
+                        <h3>Assistências Técnicas</h3>
+                    </a>
+                </div>
 
-        </div>
+            </div>
 
         </div>
 
@@ -133,22 +132,22 @@
 
     <script>
 
-        document.getElementById('tituloBarra').textContent = "Olá "+localStorage.getItem("UsuarioNome") ;
+        document.getElementById('tituloBarra').textContent = "Olá " + localStorage.getItem("UsuarioNome");
         console.log(localStorage.getItem("UsuarioNome"));
         console.log(localStorage.getItem("UsuarioId"));
         console.log(localStorage.getItem("UsuarioCep"));
 
         //realiza as busca ao precionar enter
-        document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
+        document.getElementById('inputPesquisa').addEventListener('keyup', function (e) {
             var key = e.which || e.keyCode;
             //abre a nova tela ao precionar enter
             if (key == 13) { // codigo da tecla enter
                 localStorage.setItem("ProdutoPesquisa", document.getElementById('inputPesquisa').value);
                 window.location.href = "produtosPesquisa.html";
             }
-        });       
-  
-        
+        });
+
+
     </script>
 </body>
 
