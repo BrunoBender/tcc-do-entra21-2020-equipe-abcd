@@ -44,14 +44,11 @@ public class ContaAtualizacaoDTO {
 	private final LocalDateTime editadoEm = LocalDateTime.now();
 
 	@Column(name="empreendedor")
-	@NotNull
 	private boolean empreendedor;
 
 	@Column(name="admin_plataforma")
-	@NotNull
 	private boolean adminPlataforma;
 
 	@Column(name="ativo")
-	@NotNull
 	private boolean ativo;
 }

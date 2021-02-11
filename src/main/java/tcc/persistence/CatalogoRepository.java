@@ -13,8 +13,9 @@ public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
     @Query("Select u from Catalogo u where u.nomeDescritivo = :nomeDescritivo")
     List<Catalogo> findByNomeDescritivo(@Param("nomeDescritivo") String nomeDescritivo);
 
+    List<Catalogo> findByComercio_ComercioId(Long parseInt);
+
 //    List<Catalogo> findByComercioId(Long comercioId);
 
-//    @Query("Select u from Catalogo u where u.comercioId = :comercioId")
-//    List<Catalogo> findBycomercioId(@Param("comercioId") Long comercioId);
+//    List<Catalogo> findByComercioId(@Param("comercioId") Long comercioId);
 }

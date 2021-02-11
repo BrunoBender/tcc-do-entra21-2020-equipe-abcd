@@ -15,7 +15,6 @@ public class Catalogo {
 	private long catalogoId;
 
 	@Column(name = "produto")
-	@NotNull
 	private boolean produto;
 
 	@Column(name = "categoria")
@@ -43,19 +42,15 @@ public class Catalogo {
 	private double preco;
 
 	@Column(name = "criado_em")
-	@NotNull
 	private LocalDateTime criadoEm;
 
 	@Column(name = "editado_em")
-	@NotNull
 	private LocalDateTime editadoEm;
 
 	@Column(name = "item_vip")
-	@NotNull
 	private boolean itemVip;
 
 	@Column(name = "ativo")
-	@NotNull
 	private boolean ativo;
 
 	@NotNull

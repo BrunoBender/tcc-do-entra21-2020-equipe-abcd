@@ -37,17 +37,18 @@ public class CatalogoController {
         List<Catalogo> lista = catalogoRepository.findByNomeDescritivo(nomeDescritivo);
         return organizaPorPreco(lista);
     }
-//    @CrossOrigin
-//    @GetMapping("/busca/comercio/{comercioId}")
-//    public List<Catalogo> buscaComerco(@PathVariable Long comercioId){
-//
-//        List<Catalogo> lista = catalogoRepository.findBycomercioId(comercioId);
-//        return lista;
-//    }
+    @CrossOrigin
+    @GetMapping("/busca/comercio")
+    public List<Catalogo> buscaComerco( String comercioId){
+        long longComercioId = Long.parseLong(comercioId);
+
+        List<Catalogo> lista = catalogoRepository.findByComercio_ComercioId(longComercioId);
+        return lista;
+    }
 
     @CrossOrigin
     @PostMapping("/cria")
-    public void novoItem( Catalogo catalogo) {
+    public void novoItem(@DTO(CatalogoCriacaoDTO.class) Catalogo catalogo) {
         catalogoRepository.save(catalogo);
     }
 
