@@ -105,7 +105,7 @@ border-radius: 10%;
     margin-left: 180px;
     margin-right: 180px;
     padding-top: 25px;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     padding-left: 5%;
     padding-right: 20px;
     background-color: #cecece;
@@ -114,12 +114,24 @@ border-radius: 10%;
     font-size: 18px; 
 }
 
+#form label{
+    margin-left: 20%;
+}
+
+#form input{
+    margin-right: 25%;
+    float: right;
+}
+
 #divTipConta{
     background-color: #06d4a0;
     border-radius: 15px;
-    padding: 3px;
+    padding: 2px;
     width: 100px;
     text-align: center;
+    margin-left: 50%;
+    padding-right: 15px;
+    margin-top: -25px;
 }
 
 input{
@@ -140,12 +152,16 @@ select {
     border-radius: 15px;
 }
 
+#positionBtn{
+    margin-left: -400px;
+}
+
 #btnAtu{
-        margin-left: 30%;
         font-family: Poppins;
         border-radius: 15px;
         color: #1E1E1E;
         border: none;
         font-size: 18px;
         padding: 3px;
+        margin-top: -25px;
 }
