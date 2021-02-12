@@ -59,18 +59,14 @@ public class Comercio {
 	private String contratoSocialHash;
 
 	@Column(name="criado_em")
-	@NotNull
 	private LocalDateTime criadoEm;
 
 	@Column(name="editado_em")
-	@NotNull
 	private LocalDateTime editadoEm;
 
 	@Column(name="comercio_vip")
-	@NotNull
 	private boolean comercioVip;
 
 	@Column(name="ativo")
-	@NotNull
 	private boolean ativo;
 }

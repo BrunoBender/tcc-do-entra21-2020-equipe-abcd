@@ -1,5 +1,6 @@
 package tcc.controller;
 
+import org.springframework.http.ResponseEntity;
 import tcc.model.Comercio;
 import tcc.persistence.ComercioRepository;
 import tcc.model.dto.ComercioAtualizacaoDTO;
@@ -8,6 +9,8 @@ import java.util.List;
 import java.util.Optional;
 import tcc.util.DTO;
 import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 
 @RestController
 @RequestMapping("/comercios")
@@ -43,8 +46,8 @@ public class ComercioRestController {
 
 	@CrossOrigin
 	@PutMapping("/atualiza/{comercioId}")
-	public void atualizaComercio(@DTO(ComercioAtualizacaoDTO.class) Comercio comercio, @PathVariable long comercioId) {
-		comercio.setComercioId((comercioId));
+	public void atualizaComercio(@DTO(ComercioAtualizacaoDTO.class) Comercio comercio, @PathVariable String comercioId) {
+		comercio.setComercioId((Long.parseLong(comercioId)));
 
 		comercioRepository.save(comercio);
 	}
@@ -60,6 +63,13 @@ public class ComercioRestController {
 	@GetMapping("/busca/contaId/{contaId}")
 	public List<Comercio> buscaComercioPorContaId(@PathVariable long contaId) {
 		return comercioRepository.findByContaId(contaId);
+	}
+
+	@CrossOrigin
+	@DeleteMapping("/{contaId}")
+	@Transactional
+	public void remover(@PathVariable String contaId){
+		comercioRepository.deleteById(Long.parseLong(contaId));
 	}
 
 

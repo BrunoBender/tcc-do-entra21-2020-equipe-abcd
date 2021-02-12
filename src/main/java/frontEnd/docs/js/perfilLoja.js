@@ -7,13 +7,13 @@
         console.log(resposta);
         document.getElementById('idNome').textContent = resposta.nomeFantasia;
         document.getElementById('idInfo').textContent = "Endereço: "+resposta.logradouro+" | "+resposta.numeroEComplemento+" | "+resposta.bairro+" | "+resposta.cidade;
-        buscaProdutos();
+        buscaProdutos(resposta);
     })
     xhr.send();
 
-    function buscaProdutos() {
+    function buscaProdutos(resposta) {
         const xhrGetProdutos = new XMLHttpRequest;
-        xhrGetProdutos.open("GET", "http://localhost:8081/api/catalogo/busca/nome/Banana");
+        xhrGetProdutos.open("GET", "http://localhost:8081/api/catalogo/busca/comercio?comercioId="+resposta.comercioId);
         xhrGetProdutos.addEventListener("load", function () {
             let resposta = xhrGetProdutos.responseText;
             let arrayProdutos = JSON.parse(resposta);

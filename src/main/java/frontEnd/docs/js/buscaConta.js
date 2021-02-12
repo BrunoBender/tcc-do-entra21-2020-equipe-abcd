@@ -22,6 +22,7 @@ xhr.send();
 
 document.getElementById('btnAtu').addEventListener('click', function () {
     let conta = {};
+    conta.contaId = localStorage.getItem('UsuarioId');
     conta.nomeUsuario = nomeUsuario;
     conta.nome = document.getElementById('nome').value;
     conta.telefone = document.getElementById('telefone').value;
@@ -35,14 +36,10 @@ document.getElementById('btnAtu').addEventListener('click', function () {
     const xhr = new XMLHttpRequest;
     xhr.open("PUT", "http://localhost:8081/api/contas/atualiza/"+Number(localStorage.getItem('UsuarioId')));
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.addEventListener("load", function () {
+        window.location.href = "../index.html";
+    });
     xhr.send(json);
+    
 
-
-});
-
-document.getElementById('btnDeletar').addEventListener('click', function(){
-    const xhr = new XMLHttpRequest;
-    xhr.open("DELETE", "http://localhost:8081/api/contas/deleta/"+Number(localStorage.getItem('UsuarioId')));
-    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.send();
 });

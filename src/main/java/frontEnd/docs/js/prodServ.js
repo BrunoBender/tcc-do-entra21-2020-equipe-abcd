@@ -77,8 +77,7 @@ function cadProd() {
         xhrAdd.setRequestHeader('Content-type', 'application/json; charset=utf-8');
       
         xhrAdd.onload = function () {
-          alert('Produto cadastrado com sucesso');
-          window.location.href = "../pages/home.html";
+            window.location.href = "../pages/home.html";
         }
         xhrAdd.send(json);
         

@@ -58,7 +58,10 @@
             var resposta = xhr.responseText;
             resposta = JSON.parse(resposta);
             if(resposta.length == 0){
-                alert('Estabelecimentos não encontrados');
+                let newH1 = document.createElement('h1');
+            newH1.textContent = 'Estabelecimento não encontrado';
+            newH1.id = 'idH1';
+            document.getElementById('selecao').appendChild(newH1);
             }
             else{
                 for (let index = 0; index < resposta.length; index++) {

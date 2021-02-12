@@ -65,7 +65,10 @@
             produtos = JSON.parse(produtos);
 
             if (produtos.length == 0) {
-                alert('Produto não encontrado');
+                let newH1 = document.createElement('h1');
+                newH1.textContent = 'Produto não encontrado';
+                newH1.id = 'idH1';
+                document.getElementById('selecao').appendChild(newH1);
             }
             else{
                 

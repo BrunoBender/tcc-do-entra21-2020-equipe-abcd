@@ -2,16 +2,14 @@ package tcc.controller;
 
 import org.springframework.web.bind.annotation.*;
 import tcc.model.Catalogo;
-import tcc.model.Conta;
 import tcc.model.dto.CatalogoAtualizacaoDTO;
 import tcc.model.dto.CatalogoCriacaoDTO;
 import tcc.persistence.CatalogoRepository;
 import tcc.util.DTO;
 
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/catalogo")
@@ -58,6 +56,14 @@ public class CatalogoController {
         catalogo.setCatalogoId(itemId);
         catalogoRepository.save(catalogo);
     }
+
+    @CrossOrigin
+    @PostMapping
+    @Transactional
+    public void cadastrar(@RequestBody @Valid Catalogo catalogo) {
+        catalogoRepository.save(catalogo);
+    }
+
 //    @CrossOrigin
 //    @GetMapping("/busca/comercio/{comercioId}")
 //    public List<Catalogo> buscaPorComercio(@PathVariable Long comercioId){

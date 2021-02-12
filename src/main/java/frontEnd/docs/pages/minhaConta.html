@@ -58,12 +58,23 @@
             </div>
             <br><br>
             <input id="btnAtu" type="button" value="Atualizar Cadastro" >
-            <input id="btnDeletar" type="button" value="Deletar Conta" >
         </form>
 
     </main>
     <script src="../js/menu.js"></script>
     <script src="../js/buscaConta.js"></script>
+    
+    <script>
+         //realiza as busca ao precionar enter
+    document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
+            var key = e.which || e.keyCode;
+            //abre a nova tela ao precionar enter
+            if (key == 13) { // codigo da tecla enter
+                localStorage.setItem("ProdutoPesquisa", document.getElementById('inputPesquisa').value);
+                window.location.href = "pesquisaProdutos.html";
+            }
+    });      
+    </script>
 </body>
 
 </html>
