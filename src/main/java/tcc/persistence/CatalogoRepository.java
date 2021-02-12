@@ -15,6 +15,8 @@ public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
 
     List<Catalogo> findByComercio_ComercioId(Long parseInt);
 
+    void deleteByComercio_ComercioId(long parseLong);
+
 //    List<Catalogo> findByComercioId(Long comercioId);
 
 //    List<Catalogo> findByComercioId(@Param("comercioId") Long comercioId);

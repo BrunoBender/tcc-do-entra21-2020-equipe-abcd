@@ -37,14 +37,24 @@ document.getElementById('btnAtu').addEventListener('click', function(){
     console.log(json);
     
     const xhr = new XMLHttpRequest;
-    xhr.open("PUT", "http://localhost:8081/api/comercios/atualiza/"+Number(localStorage.getItem('ComercioId')));
+    xhr.open("PUT", "http://localhost:8081/api/comercios/atualiza/"+localStorage.getItem('ComercioId'));
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.addEventListener("load", function () { 
         // window.location.href = "../index.html";
     });    
-    // xhr.send(json);
+    xhr.send(json);
 });
 document.getElementById('btndeletar').addEventListener('click', function(){
-    xhr.open("DELETE", "http://localhost:8081/api/comercios/"+localStorage.getItem('ComercioId'));
+    const xhr = new XMLHttpRequest;
+    const xhr2 = new XMLHttpRequest;
+    xhr.open("DELETE", "http://localhost:8081/api/catalogo/"+localStorage.getItem('ComercioId'));
+    xhr.addEventListener('load', function(){
+        xhr2.open("DELETE", "http://localhost:8081/api/comercio/"+localStorage.getItem('ComercioId'));
+        xhr2.addEventListener('load', function(){
+            alert('Comércio deletado com sucesso');
+            window.location.href = "../pages/home.html";
+        });
+        xhr2.send();
+    });
     xhr.send();
 });

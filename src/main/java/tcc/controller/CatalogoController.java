@@ -91,5 +91,11 @@ public class CatalogoController {
 
         return lista;
     }
+    @CrossOrigin
+    @DeleteMapping("/{comercioId}")
+    @Transactional
+    public void remover(@PathVariable String comercioId){
+        catalogoRepository.deleteByComercio_ComercioId(Long.parseLong(comercioId));
+    }
 
 }
