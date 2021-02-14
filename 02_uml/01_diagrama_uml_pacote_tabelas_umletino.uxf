@@ -1,0 +1,138 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>340</x><y>851</y><w>210</w><h>260</h></coordinates><panel_attributes>*AvaliacaoComercio*
+Package::tcc.model
+--
+-id: Long
+-nota: double
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>0</y><w>210</w><h>400</h></coordinates><panel_attributes>*Catalogo*
+Package::tcc.model
+--
+-id: Long
+-produto: boolean
+-categoria: String
+-nomeDescritivo: String
+-marca: String
+-medidaUsada: String
+-quantidadeMedida: double
+-preco: double
+-itemVip: boolean
+-ativo: boolean
+-ultimaAlteracao: OffsetDateTime
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>0</y><w>210</w><h>400</h></coordinates><panel_attributes>*Comercio*
+Package::tcc.model
+--
+-id: Long
+-nomeFantasia: String
+-razaoSocial: String
+-cnpj: int
+-logradouro: String
+-numeroEComplemento: String
+-cep: int
+-bairro: String
+-cidade: String
+-contratoSocialHash: String
+-comercioVip: boolean
+-ativo: boolean
+-ultimaAlteracao: OffsetDateTime
+--
++validaCnpj()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>210</w><h>810</h></coordinates><panel_attributes>*Conta*
+Package::tcc.model
+--
+-id: Long
+-nomeUsuario: String
+-nome: String
+-telefone: int
+-cep: int
+-email: String
+-senha: String
+-empreendedor: boolean
+-adminPlataforma: boolean
+-ativo: boolean
+-ultimaAlteracao: OffsetDateTime
+--
++validaCpf()
+
++cadastraConta()
++atualizaConta()
++inativaConta()
++logaNaPlataforma()
++ativaComercio()
++listaComercios()
++listaCatalogos()
++filtraPesquisa()
++avaliaComercio()
++atualizaAvaliacao()
++deletaAvaliacao()
++abreReporte()
++atualizaReporte()
++inativaReporte()
+
++cadastraComercio()
++atualizaComercio()
++inativaComercio()
++adicionaItem()
++atualizaItem()
++inativaItem()
++listaItensVip()
++listaPromocoes()
++adicionaPromocao()
++encerraPromocao()
++listaReportes()
+
++reativaConta()
++deletaConta()
++listaTodosComerciosVip()
++reativaComercio()
++deletaComercio()
++listaTodosItensVip()
++reativaItem()
++deletaITem()
++listaTodasPromocoes()
++deletaPromocao()
++listaTodosReportes()
++reativaReporte()
++deletaReporte()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>480</y><w>210</w><h>310</h></coordinates><panel_attributes>*Promocao*
+Package::tcc.model
+--
+-id: Long
+-precoPromocional: double
+-dataInicio: String
+-dataFim: String
+-ativo: boolean
+-ultimaAlteracao: OffsetDateTime
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>480</y><w>210</w><h>310</h></coordinates><panel_attributes>*Reporte*
+Package::tcc.model
+--
+-id: Long
+-dataAbertura: String
+-catalogo: boolean
+-promocao: boolean
+-detalhes: String
+-dataConclusao: String
+-resolucao: String
+-ativo: boolean
+-ultimaAlteracao: OffsetDateTime
+--</panel_attributes><additional_attributes></additional_attributes></element></diagram>

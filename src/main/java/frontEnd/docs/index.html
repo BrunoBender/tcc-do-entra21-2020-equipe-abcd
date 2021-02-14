@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Search</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="login" class="gradient">
+            <div>
+                <div id="lupas"></div>
+                <img id="logo" src="Assets/Logo_Local_SearchPNG.png">
+                <div class="glass"> 
+                    <div class="alinhamento">
+                        <h2>Login</h2>
+                        <label for="idUser">Usuário</label>
+                        <br>
+                        <input type="text" name="Usuario" id="idUser">
+                        <br><br>
+                        <label for="idSenha">Senha</label>
+                        <br>
+                        <input type="password" name="Senha" id="idSenha">
+                        <br><br>
+                        <a href="Pages/cadastro.html"><input id="botao" type="button" value=" Criar Conta "></a>
+                        <input id="btnLogin" type="button" value=" Login ">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+    
+    <script>
+
+        localStorage.setItem("UsuarioNome", '');
+        localStorage.setItem("UsuarioId", '');
+        localStorage.setItem("UsuarioCep", '');
+        localStorage.setItem("UsuarioCep", '');
+        localStorage.setItem("ComercioId", '');
+
+       document.getElementById('btnLogin').addEventListener('click', function(){
+            if(document.getElementById('idUser').value == '' || document.getElementById("idSenha").value == ''){
+                alert("Preencha os campos corretamente");
+            }
+            else{
+                const xhr = new XMLHttpRequest;
+                xhr.open("GET", "http://localhost:8081/api/contas/busca/senha/"+document.getElementById("idSenha").value);
+                xhr.addEventListener("load", function () {
+                    let resposta = xhr.responseText;
+                    resposta = JSON.parse(resposta);
+                    try {
+                        getNomeUsuario(resposta.contaId);
+                    } catch (error) {
+                        alert("Usuário não cadastrado");
+            
+                    }
+                    
+                });
+                xhr.send();
+            }
+    
+        });
+
+//retorna 
+function getNomeUsuario(contaIdSenha){
+    const xhr = new XMLHttpRequest;
+    xhr.open("GET", "http://localhost:8081/api/contas/busca/nomeUsuario/"+document.getElementById('idUser').value);
+    xhr.addEventListener("load", function () {
+        let resposta = xhr.responseText;
+        resposta = JSON.parse(resposta);
+        if( resposta.contaId === contaIdSenha){
+            window.location.href = "pages/home.html";
+            
+           localStorage.setItem("UsuarioNome", resposta.nome);
+           localStorage.setItem("UsuarioId", resposta.contaId);
+           localStorage.setItem("UsuarioCep", resposta.cep);
+  
+        }
+        else{
+            alert("Usuário não cadastrado");
+        }
+    });
+    xhr.send();
+}
+
+    </script>
+</body>
+
+</html>

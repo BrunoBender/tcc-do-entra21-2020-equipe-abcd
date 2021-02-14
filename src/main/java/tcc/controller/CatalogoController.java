@@ -1,0 +1,101 @@
+package tcc.controller;
+
+import org.springframework.web.bind.annotation.*;
+import tcc.model.Catalogo;
+import tcc.model.dto.CatalogoAtualizacaoDTO;
+import tcc.model.dto.CatalogoCriacaoDTO;
+import tcc.persistence.CatalogoRepository;
+import tcc.util.DTO;
+
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import java.util.List;
+
+@RestController
+@RequestMapping("/catalogo")
+public class CatalogoController {
+    private CatalogoRepository catalogoRepository;
+
+    public CatalogoController(CatalogoRepository catalogoRepository){
+        this.catalogoRepository = catalogoRepository;
+    }
+
+    @CrossOrigin
+    @GetMapping("/busca/todos")
+    public List<Catalogo> buscaTodosCatalogos(){
+        return catalogoRepository.findAll();
+    }
+
+    @CrossOrigin
+    @GetMapping("/busca/nome/{nomeDescritivo}")
+    public List<Catalogo> buscaNome(@PathVariable String nomeDescritivo){
+
+        //organiza os produtos em ordem de menor preço
+
+        List<Catalogo> lista = catalogoRepository.findByNomeDescritivo(nomeDescritivo);
+        return organizaPorPreco(lista);
+    }
+    @CrossOrigin
+    @GetMapping("/busca/comercio")
+    public List<Catalogo> buscaComerco( String comercioId){
+        long longComercioId = Long.parseLong(comercioId);
+
+        List<Catalogo> lista = catalogoRepository.findByComercio_ComercioId(longComercioId);
+        return lista;
+    }
+
+    @CrossOrigin
+    @PostMapping("/cria")
+    public void novoItem(@DTO(CatalogoCriacaoDTO.class) Catalogo catalogo) {
+        catalogoRepository.save(catalogo);
+    }
+
+    @CrossOrigin
+    @PutMapping("/atualiza/{itemId}")
+    public void atualizaItem(@DTO(CatalogoAtualizacaoDTO.class) Catalogo catalogo, @PathVariable long itemId) {
+        catalogo.setCatalogoId(itemId);
+        catalogoRepository.save(catalogo);
+    }
+
+    @CrossOrigin
+    @PostMapping
+    @Transactional
+    public void cadastrar(@RequestBody @Valid Catalogo catalogo) {
+        catalogoRepository.save(catalogo);
+    }
+
+//    @CrossOrigin
+//    @GetMapping("/busca/comercio/{comercioId}")
+//    public List<Catalogo> buscaPorComercio(@PathVariable Long comercioId){
+//
+//        //organiza os produtos em ordem de menor preço
+//
+//        List<Catalogo> lista = catalogoRepository.findByComercioId(comercioId);
+//        return lista;
+//    }
+
+
+    public List<Catalogo> organizaPorPreco(List <Catalogo> lista){
+        Catalogo temp;
+        Double mLista = 0d;
+
+        for(int j = 0; j < lista.size(); j++) {
+            for(int i = 0; i <lista.size()-1; i++) {
+                if (lista.get(i).getPreco() > lista.get(i+1).getPreco()) {
+                    temp = lista.get(i);
+                    lista.set(i, lista.get(i+1));
+                    lista.set(i+1, temp);
+                }
+            }
+        }
+
+        return lista;
+    }
+    @CrossOrigin
+    @DeleteMapping("/{comercioId}")
+    @Transactional
+    public void remover(@PathVariable String comercioId){
+        catalogoRepository.deleteByComercio_ComercioId(Long.parseLong(comercioId));
+    }
+
+}
