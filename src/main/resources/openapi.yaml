@@ -1,0 +1,74 @@
+openapi: "3.0.2"
+info:
+  title: "API da Plataforma Local Search"
+  description: "Plataforma de pesquisa consultando um cadastro de produtos, serviços e negócios incluídos pelos próprios empreendedores."
+  version: 1.0.0
+  license:
+    name: "GNU General Public License Version 3"
+    url: "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
+tags:
+  - name: Contas
+    description: API das Contas
+  - name: Comércios
+    description: API dos Comércios
+  - name: Avaliações
+    description: API das Avaliações
+  - name: Catálogos
+    description: API dos Catálogos
+  - name: Promoções
+    description: API das Promoções
+  - name: Reportes
+    description: API dos Reportes
+paths:
+  /api/contas:
+    post:
+      tags:
+      - "Contas"
+      summary: "Busca todas as contas"
+      responses:
+        "405":
+          description: "Entrada inválida"
+  /api/comercios:
+    post:
+      tags:
+      - "Comércios"
+      summary: "Busca todos os comércios"
+      responses:
+        "405":
+          description: "Entrada inválida"       
+  /api/avaliacoes:
+    post:
+      tags:
+      - "Avaliações"
+      summary: "Busca todas as avaliações"
+      responses:
+        "405":
+          description: "Entrada inválida"       
+  /api/itens:
+    post:
+      tags:
+      - "Catálogos"
+      summary: "Busca todos os itens dos catálogos"
+      responses:
+        "405":
+          description: "Entrada inválida"       
+  /api/promocoes:
+    post:
+      tags:
+      - "Promoções"
+      summary: "Busca todas as promoções"
+      responses:
+        "405":
+          description: "Entrada inválida"       
+  /api/reportes:
+    post:
+      tags:
+      - "Reportes"
+      summary: "Busca todos os reportes"
+      responses:
+        "405":
+          description: "Entrada inválida"       
+    
+    
+    
+    
