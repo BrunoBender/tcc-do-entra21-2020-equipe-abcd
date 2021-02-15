@@ -1,0 +1,15 @@
+/banco_de_dados/
+/build/
+/.gradle/
+/.jpb/
+out/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+!tcc-entra21-equipe-abcd.iml
+!/src/
