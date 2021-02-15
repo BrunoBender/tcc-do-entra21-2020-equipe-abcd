@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <title>Criar Conta</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="lupas"></div>
+        <div id="formulario">
+            <form action="">
+                <div id="esquerdo">
+                    <h2>Criar Conta</h2>
+                    <br><br>
+
+                    <label for="idNome">Qual seu Nome?</label>
+                    <br>
+                    <input type="text" name="Nome" id="idNome" required> 
+                    <br><br>
+
+                    <label for="idNasc">Insira sua Data de Nascimento</label>
+                    <br>
+                    <input type="date" name="DataDeNascimento" id="idNasc" required>
+                    <br><br>
+
+                    <label for="idCpf">Insira seu CPF</label>
+                    <br>
+                    <input id="idCpf" name="Cpf" oninput="mascaraCPF(this)" type="text" placeholder="xxx.xxx.xxx-xx" required> 
+                    <br><br>
+
+                    <label for="idTel">Insira seu Telefone</label>
+                    <br>
+                    <input id="idTel" name="Tel" oninput="mascaraTel(this)" type="text" placeholder="(xx) xxxxx-xxxx" required>
+                    <br><br>
+
+                    <label for="idEnd">Qual o seu Endereço</label>
+                    <br>
+                    <input type="number" name="Cep" id="idEndCep" placeholder="CEP" required>
+                    <br>
+                    <input type="text" name="Cidade" id="idEndCid" placeholder="Cidade" required>
+                    <br>
+                    <input type="text" name="Bairro" id="idEndBai" placeholder="Bairro" required>
+                    <br>
+                    <input type="text" name="Rua" id="idEndRua" placeholder="Rua" required>
+                    <br>
+                    <input type="text" name="Complement" id="idEndComp" placeholder="Complemento">
+                    <br><br>
+
+                    <label for="idEmail">Insira seu melhor E-mail</label>
+                    <br>
+                    <input type="email" name="Email" id="idEmail">
+                    <br><br>
+
+                    <label for="idSenha">Insira uma Senha Forte</label>
+                    <br>
+                    <input type="password" name="Senha" id="idSenha">
+                    <br><br>
+
+                    <label for="idUser">Insira um nome de Usuário</label>
+                    <br>
+                    <input type="text" name="Usuario" id="idUser">
+                    <br><br>
+                    <div id="botoesMobile">
+                        <input type="submit" value="Criar Conta">
+                        <br>
+                        <a href="/index.html"><input type="button" value="Voltar"></a>
+                    </div>
+                </div>
+            </form>
+
+            <div id="direito">
+                <img id="logo" src="/assets/Logo Local SearchPNG.png">
+                <br><br>
+                <div id="botoes">
+                    <input type="submit" value="Criar Conta">
+                    <br>
+                    <a href="/index.html"><input type="button" value="Voltar"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+<script src=""></script>
+</body>
+
+<script src="/js/validacao.js"></script>
+
+</html>
