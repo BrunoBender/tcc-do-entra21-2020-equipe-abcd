@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="barraPesquisa">
-            <h2 id="tituloBarra">Pesquisar</h2>
+            <h2 id="tituloBarra">Local Search</h2>
             <div id="pesquisaSpace">
                 <img id="search" src="../assets/search.png">
                 <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
@@ -22,6 +22,11 @@
                 <div class="active">
                     <div id="myLinks">
                         <a href="../pages/home.html">Home</a>
+                        <a href="../pages/upgrade.html" id="btnCriaComercio" >Upgrade</a>
+                        <a href="../pages/meuComercio.html" id="btnAttComercio" >Meu Comércio</a>
+                        <a href="../pages/inserirProd.html" id="btnCatalogo" >Cadastrar Ofertas</a>
+                        <a href="../pages/minhaConta.html" id="btnMinhaConta" >Minha Conta</a>
+                        <a href="../index.html">Sair</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="menu()">
                         <i class="gg-menu"></i>
@@ -40,6 +45,34 @@
 <script src="../js/menu.js"></script>  
 <script>
 
+validaConta();
+        
+        function validaConta(){
+            const xhr = new XMLHttpRequest;
+            xhr.open("GET", "http://localhost:8081/api/comercios/busca/contaId/"+localStorage.getItem('UsuarioId'));
+            xhr.addEventListener("load", function () {
+                var resposta = xhr.responseText;
+                resposta = JSON.parse(resposta);
+                if (resposta.length != 0) {
+                    console.log("entrou");
+                    document.getElementById('btnCriaComercio').style = "display:none";
+                    document.getElementById('btnAttComercio').style = "display:inherit;";
+                    document.getElementById('btnCatalogo').style = "display:inherit;";
+                    document.getElementById('btnMinhaConta').style = 'display:inherit';
+                    getIdComercio();
+
+                }
+                else{
+                    console.log("não entrou");
+                    document.getElementById('btnCriaComercio').style = "display:inherit";
+                    document.getElementById('btnAttComercio').style = "display:none;";
+                    document.getElementById('btnCatalogo').style = "display:none;";
+                    document.getElementById('btnMinhaConta').style = 'display:inherit';
+                }
+            })
+            xhr.send();
+        }
+
      //realiza as busca ao precionar enter
      document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
             var key = e.which || e.keyCode;
@@ -57,7 +90,7 @@
         resposta = JSON.parse(resposta);
         if(resposta.length == 0){
             let newH1 = document.createElement('h1');
-            newH1.textContent = 'Estabelecimento não encontrado';
+            newH1.textContent = 'Nenhum estabelecimento encontrado';
             newH1.id = 'idH1';
             document.getElementById('selecao').appendChild(newH1);
         }

@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://css.gg/menu.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/minhaConta.css">
+    <link rel="stylesheet" href="../css/meuComercio.css">
     <title>Minha Conta</title>
 </head>
 
 <body>
     <header>
         <div class="barraPesquisa">
-            <h2 id="tituloBarra">Olá</h2>
+            <h2 id="tituloBarra">Local Search</h2>
             <div id="pesquisaSpace">
                 <img id="search" src="../assets/search.png">
                 <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
@@ -25,6 +25,10 @@
                     <div id="myLinks">
                         <!--Mudar menu para o comercial-->
                         <a href="home.html">Home</a>
+                        <a href="#" id="btnAttComercio" >Meu Comércio</a>
+                        <a href="../pages/inserirProd.html" id="btnCatalogo" >Cadastrar Ofertas</a>
+                        <a href="../pages/minhaConta.html" id="btnMinhaConta" >Minha Conta</a>
+                        <a href="../index.html">Sair</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="menu()">
                         <i class="gg-menu"></i>
@@ -35,6 +39,7 @@
     </header>
     <main>
         <form action="" id="form">
+                <h2>Meu Comércio</h2>
                 <label for="idNomeFantasia">Nome do Comercio:</label><br>
                 <input type="text" name="Nome da Loja" id="idNomeFantasia">
                 <br><br>
@@ -56,15 +61,18 @@
                 <label for="idTel">Telefone Comercial:</label><br>
                 <input type="number" name="Telefone" id="idTel">
                 <br><br>
+                <div id="positionBtn">
+                <input id="btnAtu" type="button" value="Atualizar" >
+                <input id="btndeletar" type="button" value="Deletar" >
+            </div>
             <br><br>
-            <input id="btnAtu" type="button" value="Atualizar" >
-            <input id="btndeletar" type="button" value="Deletar" >
         </form>
 
     </main>
     <script src="../js/menu.js"></script>
     <script src="../js/meuComerco.js"></script>
     <script>
+
          //realiza as busca ao precionar enter
         document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
         var key = e.which || e.keyCode;

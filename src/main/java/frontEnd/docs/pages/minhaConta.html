@@ -25,6 +25,11 @@
                     <div id="myLinks">
                         <!--Mudar menu para o comercial-->
                         <a href="home.html">Home</a>
+                        <a href="../pages/upgrade.html" id="btnCriaComercio" >Upgrade</a>
+                        <a href="../pages/meuComercio.html" id="btnAttComercio" >Meu Comércio</a>
+                        <a href="../pages/inserirProd.html" id="btnCatalogo" >Cadastrar Ofertas</a>
+                        <a href="#" id="btnMinhaConta" >Minha Conta</a>
+                        <a href="../index.html">Sair</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="menu()">
                         <i class="gg-menu"></i>
@@ -57,6 +62,7 @@
                 <label id="tipoConta" for="tipoConta">Pessoal</label>
             </div>
             <br><br>
+            <div id="positionBtn">
             <input id="btnAtu" type="button" value="Atualizar Cadastro" >
         </form>
 
@@ -65,6 +71,36 @@
     <script src="../js/buscaConta.js"></script>
     
     <script>
+        //altera o olá
+        document.getElementById('tituloBarra').textContent = "Olá, "+localStorage.getItem("UsuarioNome") ;
+        validaConta();
+        
+        function validaConta(){
+            const xhr = new XMLHttpRequest;
+            xhr.open("GET", "http://localhost:8081/api/comercios/busca/contaId/"+localStorage.getItem('UsuarioId'));
+            xhr.addEventListener("load", function () {
+                var resposta = xhr.responseText;
+                resposta = JSON.parse(resposta);
+                if (resposta.length != 0) {
+                    console.log("entrou");
+                    document.getElementById('btnCriaComercio').style = "display:none";
+                    document.getElementById('btnAttComercio').style = "display:inherit;";
+                    document.getElementById('btnCatalogo').style = "display:inherit;";
+                    document.getElementById('btnMinhaConta').style = 'display:inherit';
+                    getIdComercio();
+
+                }
+                else{
+                    console.log("não entrou");
+                    document.getElementById('btnCriaComercio').style = "display:inherit";
+                    document.getElementById('btnAttComercio').style = "display:none;";
+                    document.getElementById('btnCatalogo').style = "display:none;";
+                    document.getElementById('btnMinhaConta').style = 'display:inherit';
+                }
+            })
+            xhr.send();
+        }
+
          //realiza as busca ao precionar enter
     document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
             var key = e.which || e.keyCode;
@@ -73,7 +109,9 @@
                 localStorage.setItem("ProdutoPesquisa", document.getElementById('inputPesquisa').value);
                 window.location.href = "pesquisaProdutos.html";
             }
-    });      
+    });
+
+
     </script>
 </body>
 

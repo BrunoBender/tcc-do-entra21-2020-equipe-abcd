@@ -34,6 +34,10 @@ public class ContaCriacaoDTO {
 	@NotNull
 	private String senha;
 
+	@Column(name="ativo")
+	@NotNull
+	private boolean ativo = true;
+
 	@JsonIgnore
 	private final LocalDateTime criadoEm = LocalDateTime.now();
 

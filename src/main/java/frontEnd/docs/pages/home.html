@@ -24,9 +24,9 @@
                     <div id="myLinks">
                         <a href="#">Home</a>
                         <a href="../pages/upgrade.html" id="btnCriaComercio" >Upgrade</a>
-                        <a href="../pages/meuComercio.html" id="btnAttComercio" >Meu comercio</a>
-                        <a href="../pages/inserirProd.html" id="btnCatalogo" >Meu Catálogo</a>
-                        <a href="../pages/minhaConta.html" id="btnMinhaConta" >Minha conta</a>
+                        <a href="../pages/meuComercio.html" id="btnAttComercio" >Meu Comércio</a>
+                        <a href="../pages/inserirProd.html" id="btnCatalogo" >Cadastrar Ofertas</a>
+                        <a href="../pages/minhaConta.html" id="btnMinhaConta" >Minha Conta</a>
                         <a href="../index.html">Sair</a>
                     </div>
                     <a href="javascript:void(0);" class="icon" onclick="menu()">
@@ -37,7 +37,15 @@
         </div>
     </header>
     <main>
-        <div id="barraLojas">
+            <div class="barraLojasM">
+                    <img class="lojasImgM" src="../assets/home/logo_Mercado.jpg">
+                    <img class="lojasImgM" src="../assets/home/logo_Mercado2.jpg">
+                    <img class="lojasImgM" src="../assets/home/logo_salao.jpg">
+                    <img class="lojasImgM" src="../assets/home/logo_salao2.jpg">
+                    <img class="lojasImgM" src="../assets/home/loja1.jpg">
+                </div>
+
+        <div class="barraLojas">
             <img class="lojasImg" src="../assets/home/logo_Mercado.jpg">
             <img class="lojasImg" src="../assets/home/logo_Mercado2.jpg">
             <img class="lojasImg" src="../assets/home/logo_salao.jpg">
@@ -64,7 +72,6 @@
             <h2>Categorias</h2>
 
             <div class="categorias">
-
 
                     <div class="item">
                         <a href="../pages/mercado.html">
@@ -124,7 +131,73 @@
 
         </div>
 
+            <!--Categorias Mobile-->
+            <div id="cat1" hidden>
+                <div class="item">
+                    <a href="../pages/mercado.html">
+                        <img class="imgItem" src="../assets/home/Cat_Mercado.png">
+                        <h3>Mercado</h3>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="../pages/padaria.html">
+                        <img class="imgItem" src="../assets/home/Cat_Padaria.png">
+                        <h3>Padarias</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div id="cat2" hidden>
+                <div class="item">
+                    <a href="../pages/brecho.html">
+                        <img class="imgItem" src="../assets/home/Cat_Brecho.png">
+                        <h3>Brechós</h3>
+                    </a>
+                </div>
+
+                <div class="item" >
+                    <a href="../pages/artesanato.html">
+                        <img class="imgItem" src="../assets/home/Cat_Artesanato.png">
+                        <h3>Lojas de Artesanato</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div id="cat3" hidden>
+                <div class="item">
+                    <a href="../pages/saloesDeBeleza.html">
+                        <img class="imgItem" src="../assets/home/Cat_Salao.png">
+                        <h3>Salões de Beleza</h3>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="../pages/farmácias.html">
+                        <img class="imgItem" src="../assets/home/Cat_Farmacia.png">
+                        <h3>Farmácias</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div id="cat4" hidden>
+                <div class="item">
+                    <a href="../pages/construcao.html">
+                        <img class="imgItem" src="../assets/home/Cat_Construcao.png">
+                        <h3>Lojas de Construção</h3>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="../pages/assistenciaTec.html">
+                        <img class="imgItem" src="../assets/home/Cat_Assist_Tec.png">
+                        <h3>Assistências Técnicas</h3>
+                    </a>
+                </div>
+            </div>
+
         </div>
+
 
     </main>
     <footer>
@@ -133,12 +206,13 @@
 
     <script src="../js/menu.js"></script>
     <script src="../js/anuncios.js"></script>
+    <script src="../js/apis/home.js"></script>
 
     <script>
 
         validaContaComercio();
 
-        document.getElementById('tituloBarra').textContent = "Olá "+localStorage.getItem("UsuarioNome") ;
+        document.getElementById('tituloBarra').textContent = "Olá, "+localStorage.getItem("UsuarioNome") ;
         console.log(localStorage.getItem("UsuarioNome"));
         console.log(localStorage.getItem("UsuarioId"));
         console.log(localStorage.getItem("UsuarioCep"));
@@ -151,12 +225,12 @@
                 localStorage.setItem("ProdutoPesquisa", document.getElementById('inputPesquisa').value);
                 window.location.href = "pesquisaProdutos.html";
             }
-        });    
-  
+        });
+
         function validaContaComercio(){
             const xhr = new XMLHttpRequest;
             xhr.open("GET", "http://localhost:8081/api/comercios/busca/contaId/"+localStorage.getItem('UsuarioId'));
-            xhr.addEventListener("load", function () {  
+            xhr.addEventListener("load", function () {
                 var resposta = xhr.responseText;
                 resposta = JSON.parse(resposta);
                 if (resposta.length != 0) {
@@ -168,10 +242,10 @@
                     document.getElementById('titulA1').textContent = 'Bem vindo Comerciante!';
                     document.getElementById('textA1').textContent = 'Anuncie seus Produtos aqui'
                     getIdComercio();
-                   
+
                 }
                 else{
-                   
+
                     document.getElementById('btnCriaComercio').style = "display:inherit;";
                     document.getElementById('btnAttComercio').style = "display:none;";
                     document.getElementById('btnCatalogo').style = "display:none;";
