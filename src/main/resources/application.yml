@@ -1,0 +1,40 @@
+### Propriedade da Aplicação
+spring:
+  application:
+    name: TCC do Entra21 da Equipe ABCD
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tcc
+    username: postgres
+    password: adm123
+    driver-class-name: org.postgresql.Driver
+  mvc:
+    static-path-pattern: /plataforma/**
+
+### Propriedades do Servidor
+server:
+  port: 8081
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api/docs
+  swagger-ui:
+    path: /api/docs/ui
+#    operationsSorter: alpha
+    tagsSorter: alpha
+    display-query-params-without-oauth2: true
+    display-query-params: true
+    defaultModelsExpandDepth: -1
+    defaultModelExpandDepth: 0
+    displayRequestDuration: true
+    docExpansion: none
+    showCommonExtensions: true
+    tryItOutEnabled: true
+    syntaxHighlight:
+      theme: obsidian
+  pre-loading-enabled: true
+  use-fqn: true
