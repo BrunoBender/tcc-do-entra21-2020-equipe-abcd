@@ -1,0 +1,12 @@
+.gradle/
+.idea/
+.settings/
+bin/
+build/
+gradle/
+rascunho/
+tcc-do-entra21-2020-equipe-abcd.iml
+*.class
+.classpath
+.project
+local.properties
