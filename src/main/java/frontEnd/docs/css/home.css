@@ -46,7 +46,7 @@ body{
   }
   
 .active {
-    padding-top:48px;
+    padding-top:1px;
   }
 
 
@@ -99,33 +99,6 @@ border-radius: 10%;
     background-color:#ffffff;
 }
 
-.barraLojasM{
-    display: none;
-}
-
-.barraLojas{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.lojasImg{
-    margin: 25px;
-    background-color: #ddd;
-    border-radius: 100%;
-    object-fit: cover;
-    height: 100px;
-    width: 100px; 
-    margin-top: -30px;
-    filter: drop-shadow(-1px 3px 4px rgba(0, 0, 0, 0.25));
-    transition: transform .1s;
-}
-
-.lojasImg:hover{
-    transform: scale(1.5);
-}
-
 
 .gradienteA1{
     background: linear-gradient(46deg,#2cdb84, #06d4a0,#0f8fb1,#108bb2);
@@ -154,6 +127,8 @@ border-radius: 10%;
     width: 98%;
     margin: 15px;
     float: left;
+    margin-top:-330px;
+    margin-bottom:80px;
 }
 
 #anuncio1 img{
@@ -306,35 +281,18 @@ border-radius: 10%;
     display: none;
 }
 
-.barraLojasM{
-    padding-top: 1px;
-    padding-bottom: 1px;
-    display: flex;
-    overflow: auto;
-    white-space: nowrap;
-    padding-left: 20px;
 
-}
 
-.lojasImgM{
-    margin: 10px;
-    background-color: #ddd;
-    border-radius: 100%;
-    object-fit: cover;
-    height: 95px;
-    width: 95px;
-    filter: drop-shadow(-1px 3px 4px rgba(0, 0, 0, 0.25));
-    transition: transform .1s;
-}
 
-.lojasImgM:hover{
-    transform: scale(1.1)
-}
+
+
 
 #anuncio1{
     height: 280px;
     width: fit-content;
     margin: 10px;
+    margin-top:-330px;
+    margin-bottom:80px;
 }
 
 #anuncio1 img{
