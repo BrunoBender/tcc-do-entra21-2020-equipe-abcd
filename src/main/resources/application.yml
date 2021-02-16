@@ -12,7 +12,7 @@ spring:
     password: adm123
     driver-class-name: org.postgresql.Driver
   mvc:
-    static-path-pattern: /plataforma/**
+    static-path-pattern: /app/**
 
 ### Propriedades do Servidor
 server:
