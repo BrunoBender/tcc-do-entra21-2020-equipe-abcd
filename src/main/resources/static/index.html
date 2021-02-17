@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head></head>
+	<body>
+		<header></header>
+		<main>
+			<form  action="#" method="post" required>
+				<fieldset>
+					<legend>Tabela</legend>
+					<input type="radio" name="nmTabela" value="contas" checked>contas
+					<input type="radio" name="nmTabela" value="comercios">comercios
+					<input type="radio" name="nmTabela" value="itens">itens
+					<input type="radio" name="nmTabela" value="avaliacoes">avaliacoes
+					<input type="radio" name="nmTabela" value="promocoes">promocoes
+					<input type="radio" name="nmTabela" value="reportes">reportes
+				</fieldset>
+				<br>
+				<fieldset id="idFieldset">
+					<legend>A&ccedil;&otilde;es</legend>
+					<button type="button" name="nmBtnBuscaTodos" id="idBtnBuscaTodos">Busca todos</button>
+					<button type="button" name="btnBuscaPorId" >Busca por id</button>
+					<button type="button" name="btnCria">Cria</button>
+					<button type="button" name="btnEditaUmOuMais">Edita um</button>
+					<button type="button" name="btnEditaTodos">Edita todos</button>
+					<button type="button" name="btnExclui">Exclui</button>
+				</fieldset>
+				<br>
+				<p id="idUrl" name="nmUrl"></p>
+				<label for="idFieldset" id="idLblFieldset">...</label>
+			</form>
+		</main>
+		<footer></footer>
+		<script src="js/index.js"></script>
+	</body>
+</html>
