@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://css.gg/menu.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/perfilLoja.css">
+    <link rel="stylesheet" href="../css/categorias.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <header>
+        <div class="barraPesquisa">
+            <h2 id="tituloBarra">Olá</h2>
+            <div id="pesquisaSpace">
+                <img id="search" src="../assets/search.png">
+                <input id="inputPesquisa" type="text" name="Buscar" id="idBuscar" placeholder="O que você precisa?">
+            </div>
+            <div class="topnav">
+                <div class="active">
+                    <div id="myLinks">
+                        <a href="home.html">Home</a>
+                    </div>
+                    <a href="javascript:void(0);" class="icon" onclick="menu()">
+                        <i class="gg-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="cabecalho">   
+            <img class="logoPerfil" src="../assets/home/logo_Mercado.jpg" alt="logo">
+            <div id="infos">
+                <h2 id="idNome">Mercado Happy Shopping</h2>
+                <p id="idInfo">Categoria:______  |  Distancia: _______    | Avaliação:_______</p>
+            </div>
+        </div>
+        
+        <table id="selecao">
+            
+            
+
+            </div>
+        </table>
+    </main>
+    <script src="../js/menu.js"></script>
+    <script src="../js/perfilLoja.js"></script>
+    <script>
+        //realiza as busca ao precionar enter
+        document.getElementById('inputPesquisa').addEventListener('keyup', function(e){
+        var key = e.which || e.keyCode;
+        //abre a nova tela ao precionar enter
+        if (key == 13) { // codigo da tecla enter
+            localStorage.setItem("ProdutoPesquisa", document.getElementById('inputPesquisa').value);
+            window.location.href = "pesquisaProdutos.html";
+        }
+    });   
+    </script>
+</body>
+
+</html>
